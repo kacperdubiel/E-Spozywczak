@@ -8,12 +8,15 @@ namespace E_Spożywczak.Models
 {
     public class Rating
     {
+        // Primary
         [Key]
-        public int RatingId;
-        public int RatingValue;
+        public int Id;
+        public int Rate;
         public DateTime RatingDate;
-        public string RatingMessage;
+        public string Message;
 
-        public ICollection<Product> RatingProductsList;
+        // Foreign
+        public int ProductId;
+        public Product Product;
     }
 }

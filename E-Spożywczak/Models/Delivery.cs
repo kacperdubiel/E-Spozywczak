@@ -8,10 +8,13 @@ namespace E_Spożywczak.Models
 {
     public class Delivery
     {
+        // Primary
         [Key]
-        public int DeliveryId;
-        public string DeliveryTypeName;
-        public double DeliveryPrice;
-        public ICollection<Order> DeliveryOrdersList;
+        public int Id;
+        public string Name;
+        public double Price;
+
+        // Foreign
+        public ICollection<Order> Orders;
     }
 }

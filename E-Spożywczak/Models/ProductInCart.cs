@@ -8,15 +8,16 @@ namespace E_Spożywczak.Models
 {
     public class ProductInCart
     {
+        // Primary
         [Key]
-        public int ProductInCartId;
-        public int ProductInCartProductId;
-        public Product ProductInCartProduct;
+        public int Id;
+        public double Amount;
 
-        public double ProductInCartAmount;
+        // Foreign
+        public int ProductId;
+        public Product Product;
 
-        public int ProductInCartCartId;
-        public Cart ProductInCartCart;
-
+        public int CartId;
+        public Cart Cart;
     }
 }

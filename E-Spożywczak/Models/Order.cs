@@ -13,16 +13,24 @@ namespace E_Spożywczak.Models
     }
     public class Order
     {
+        // Primary
         [Key]
-        public int OrderId;
-        public string OrderAddress;
-        public int OrderDeliveryId;
-        public Delivery OrderDelivery;
+        public int Id;
+        public string DeliveryAddress;
         public DateTime OrderDate;
-        public TypeOfPayment OrderTypeOfPayment;
+
+        public TypeOfPayment TypeOfPayment;
         public bool IsOrderPaid;
         public DateTime OrderPaymentDate;
-        public Cart OrderCart; 
-        public OrdersHistory OrderOrdersHistory;
+
+        // Foreign
+        public int DeliveryId;
+        public Delivery Delivery;
+
+        public int CartId;
+        public Cart Cart;
+
+        public int OrdersHistoryId;
+        public OrdersHistory OrdersHistory;
     }
 }

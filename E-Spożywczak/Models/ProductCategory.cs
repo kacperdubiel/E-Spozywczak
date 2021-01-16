@@ -8,9 +8,12 @@ namespace E_Spożywczak.Models
 {
     public class ProductCategory
     {
+        // Primary
         [Key]
-        public int ProductCategoryId;
-        public string ProductCategoryName;
-        public ICollection<Product> ProductCategoryProducts;
+        public int Id;
+        public string Name;
+
+        // Foreign
+        public ICollection<Product> Products;
     }
 }

@@ -15,16 +15,19 @@ namespace E_Spożywczak.Models
 
     public class Product
     {
+        // Primary
         [Key]
-        public int ProductId;
-        public string ProductName;
-        public MeasureType ProductMeasureType;
-        public double ProductAvailability;
-        public bool IsProductAvailable;
-        public ProductCategory ProductCategory;
-        public int ProductCategoryId;
-        public string ProductImagePath;
+        public int Id;
+        public string Name;
+        public MeasureType MeasureType;
+        public double Availability;
+        public bool IsAvailable;
+        public string ImagePath;
 
-        public ICollection<Rating> ProductRatingList;
+        // Foreign
+        public int ProductCategoryId;
+        public ProductCategory ProductCategory;
+
+        public ICollection<Rating> Ratings;
     }
 }

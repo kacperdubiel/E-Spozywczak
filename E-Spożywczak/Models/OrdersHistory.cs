@@ -8,8 +8,11 @@ namespace E_Spożywczak.Models
 {
     public class OrdersHistory
     {
+        // Primary
         [Key]
-        public int OrdersHistoryId;
-        public ICollection<Order> OrdersInHistory;
+        public int Id;
+
+        // Foreign
+        public ICollection<Order> Orders;
     }
 }

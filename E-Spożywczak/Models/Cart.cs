@@ -8,9 +8,14 @@ namespace E_Spożywczak.Models
 {
     public class Cart
     {
+        // Primary
         [Key]
-        public int CartId;
-        ICollection<ProductInCart> CartProductsInCartList;
-        public Order CartOrder; 
+        public int Id;
+
+        // Foreign
+        ICollection<ProductInCart> ProductInCarts;
+
+        public int OrderId;
+        public Order Order; 
     }
 }
