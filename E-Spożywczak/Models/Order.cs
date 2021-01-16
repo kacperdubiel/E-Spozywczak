@@ -20,7 +20,7 @@ namespace E_Spożywczak.Models
         public TypeOfPayment OrderTypeOfPayment;
         public bool IsOrderPaid;
         public DateTime OrderPaymentDate;
-        ICollection<ProductInCart> OrderProducts;
+        public Cart OrderCart; 
         public OrdersHistory OrderOrdersHistory;
     }
 }

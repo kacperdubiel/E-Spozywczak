@@ -9,5 +9,6 @@ namespace E_Spożywczak.Models
     {
         public int CartId;
         ICollection<ProductInCart> CartProductsInCartList;
+        public Order CartOrder; 
     }
 }
