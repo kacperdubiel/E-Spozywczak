@@ -22,5 +22,7 @@ namespace E_Spożywczak.Models
         public ProductCategory ProductCategory;
         public int ProductCategoryId;
         public string ProductImagePath;
+
+        public ICollection<Rating> ProductRatingList;
     }
 }
