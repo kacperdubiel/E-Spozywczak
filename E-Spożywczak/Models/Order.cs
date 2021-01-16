@@ -10,6 +10,7 @@ namespace E_Spożywczak.Models
         Electronic,
         OnDelivery
     }
+
     public class Order
     {
         public int OrderId;
