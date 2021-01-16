@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace E_Spożywczak.Models
 {
-    public class Chart
+    public class Cart
     {
-        public int ChartId;
-        ICollection<ProductInChart> ProductsInChartList;
+        public int CartId;
+        ICollection<ProductInCart> CartProductsInCartList;
     }
 }

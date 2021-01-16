@@ -7,5 +7,11 @@ namespace E_Spożywczak.Models
 {
     public class Rating
     {
+        public int RatingId;
+        public int RatingValue;
+        public DateTime RatingDate;
+        public string RatingMessage;
+
+        public ICollection<Product> RatingProductsList;
     }
 }

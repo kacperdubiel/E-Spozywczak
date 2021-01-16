@@ -7,5 +7,7 @@ namespace E_Spożywczak.Models
 {
     public class OrdersHistory
     {
+        public int OrdersHistoryId;
+        public ICollection<Order> OrdersInHistory;
     }
 }
