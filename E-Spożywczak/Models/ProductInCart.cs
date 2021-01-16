@@ -7,10 +7,10 @@ namespace E_Spożywczak.Models
 {
     public class ProductInCart
     {
-        public int ProductInChartProductId;
-        public Product ProductInChartProduct;
+        public int ProductInCartProductId;
+        public Product ProductInCartProduct;
 
-        public double ProductInChartAmount;
+        public double ProductInCartAmount;
 
         public int ProductInCartCartId;
         public Cart ProductInCartCart;
