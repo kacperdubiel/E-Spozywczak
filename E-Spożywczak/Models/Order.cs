@@ -21,5 +21,6 @@ namespace E_Spożywczak.Models
         public bool IsOrderPaid;
         public DateTime OrderPaymentDate;
         ICollection<ProductInCart> OrderProducts;
+        public OrdersHistory OrderOrderHistory;
     }
 }
