@@ -10,9 +10,9 @@ namespace E_Spożywczak.Models
     {
         // Primary
         [Key]
-        public int Id;
+        public int Id { get; set; }
 
         // Foreign
-        public ICollection<Order> Orders;
+        public ICollection<Order> Orders { get; set; }
     }
 }

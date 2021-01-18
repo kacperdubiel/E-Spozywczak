@@ -10,12 +10,12 @@ namespace E_Spożywczak.Models
     {
         // Primary
         [Key]
-        public int Id;
+        public int Id { get; set; }
 
         // Foreign
-        ICollection<ProductInCart> ProductInCarts;
+        ICollection<ProductInCart> ProductsInCart { get; set; }
 
-        public int OrderId;
-        public Order Order; 
+        public int OrderId { get; set; }
+        public Order Order { get; set; }
     }
 }

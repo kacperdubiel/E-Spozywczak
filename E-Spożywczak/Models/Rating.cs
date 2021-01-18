@@ -10,13 +10,13 @@ namespace E_Spożywczak.Models
     {
         // Primary
         [Key]
-        public int Id;
-        public int Rate;
-        public DateTime RatingDate;
-        public string Message;
+        public int Id { get; set; }
+        public int Rate { get; set; }
+        public DateTime RatingDate { get; set; }
+        public string Message { get; set; }
 
         // Foreign
-        public int ProductId;
-        public Product Product;
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
     }
 }

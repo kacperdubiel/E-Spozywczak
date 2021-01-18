@@ -10,14 +10,14 @@ namespace E_Spożywczak.Models
     {
         // Primary
         [Key]
-        public int Id;
-        public double Amount;
+        public int Id { get; set; }
+        public double ProductAmount { get; set; }
 
         // Foreign
-        public int ProductId;
-        public Product Product;
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
 
-        public int CartId;
-        public Cart Cart;
+        public int CartId { get; set; }
+        public Cart Cart { get; set; }
     }
 }

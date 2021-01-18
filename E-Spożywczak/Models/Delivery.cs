@@ -10,11 +10,11 @@ namespace E_Spożywczak.Models
     {
         // Primary
         [Key]
-        public int Id;
-        public string Name;
-        public double Price;
+        public int Id { get; set; }
+        public string DeliveryTypeName { get; set; }
+        public double Price { get; set; }
 
         // Foreign
-        public ICollection<Order> Orders;
+        public ICollection<Order> Orders { get; set; }
     }
 }

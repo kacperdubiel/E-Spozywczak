@@ -16,22 +16,22 @@ namespace E_Spożywczak.Models
     {
         // Primary
         [Key]
-        public int Id;
-        public string DeliveryAddress;
-        public DateTime OrderDate;
+        public int Id { get; set; }
+        public string DeliveryAddress { get; set; }
+        public DateTime OrderDate { get; set; }
 
-        public TypeOfPayment TypeOfPayment;
-        public bool IsOrderPaid;
-        public DateTime OrderPaymentDate;
+        public TypeOfPayment TypeOfPayment { get; set; }
+        public bool IsOrderPaid { get; set; }
+        public DateTime OrderPaymentDate { get; set; }
 
         // Foreign
-        public int DeliveryId;
-        public Delivery Delivery;
+        public int DeliveryId { get; set; }
+        public Delivery Delivery { get; set; }
 
-        public int CartId;
-        public Cart Cart;
+        public int CartId { get; set; }
+        public Cart Cart { get; set; }
 
-        public int OrdersHistoryId;
-        public OrdersHistory OrdersHistory;
+        public int OrdersHistoryId { get; set; }
+        public OrdersHistory OrdersHistory { get; set; }
     }
 }

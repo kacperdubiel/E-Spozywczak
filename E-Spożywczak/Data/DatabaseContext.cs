@@ -22,35 +22,11 @@ namespace E_Spożywczak.Data
         public DbSet<ProductCategory> ProductCategory { get; set; }
         public DbSet<ProductInCart> ProductInCart { get; set; }
         public DbSet<Rating> Rating { get; set; }
-
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            /*modelBuilder.Entity<Cart>()
-                .HasKey(t => t.Id);
-
-            modelBuilder.Entity<Delivery>()
-                .HasKey(t => t.Id);
-
-            modelBuilder.Entity<Order>()
-                .HasKey(t => t.Id);
-
-            modelBuilder.Entity<OrdersHistory>()
-                .HasKey(t => t.Id);
-
-            modelBuilder.Entity<Product>()
-                .HasKey(t => t.Id);
-
-            modelBuilder.Entity<ProductCategory>()
-                .HasKey(t => t.Id);
-
-            modelBuilder.Entity<ProductInCart>()
-                .HasKey(t => t.Id);
-
-            modelBuilder.Entity<Rating>()
-                .HasKey(t => t.Id);*/
-
-
-            //modelBuilder.Seed();
+            modelBuilder.Seed();
         }
+
     }
 }
