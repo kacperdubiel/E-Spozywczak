@@ -76,17 +76,29 @@ body {
     
 }
 
-#products_list {
-    float: right;
+#products_top_menu {
     width: auto;
-    left: 0px;
-    right: 0px;
+    border: solid 2px rgba(0, 0, 1, .15);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+#products_search_box {
+    width: 30%;
 }
 
 #products_left_menu {
-    float: left;
-    width: 200px;
-    margin-right: 5px;
+    display: inline-block;
+    vertical-align: top;
+    width: 16%;
+    margin-right: 2%;
+}
+
+#products_list {
+    display: inline-block;
+    vertical-align: top;
+    width: 80%;
 }
 
 #float_clear {
@@ -98,3 +110,4 @@ body {
     margin-bottom: 5px;
     display: block;
 }
+
