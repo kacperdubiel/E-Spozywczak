@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Spożywczak.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20210118195832_Init")]
+    [Migration("20210118200930_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -149,7 +149,7 @@ namespace E_Spożywczak.Migrations
                             IsAvailable = true,
                             MeasureType = 0,
                             Name = "Baton Mars",
-                            Price = 0.0,
+                            Price = 2.2999999999999998,
                             ProductCategoryId = 1
                         },
                         new
@@ -160,7 +160,7 @@ namespace E_Spożywczak.Migrations
                             IsAvailable = true,
                             MeasureType = 0,
                             Name = "Baton MilkyWay",
-                            Price = 0.0,
+                            Price = 1.8999999999999999,
                             ProductCategoryId = 1
                         },
                         new
@@ -171,7 +171,7 @@ namespace E_Spożywczak.Migrations
                             IsAvailable = true,
                             MeasureType = 0,
                             Name = "Baton Snickers",
-                            Price = 0.0,
+                            Price = 2.1000000000000001,
                             ProductCategoryId = 1
                         },
                         new
@@ -182,7 +182,7 @@ namespace E_Spożywczak.Migrations
                             IsAvailable = true,
                             MeasureType = 1,
                             Name = "Jabłko Gala",
-                            Price = 0.0,
+                            Price = 3.6200000000000001,
                             ProductCategoryId = 2
                         },
                         new
@@ -193,7 +193,7 @@ namespace E_Spożywczak.Migrations
                             IsAvailable = true,
                             MeasureType = 1,
                             Name = "Sos Bolognese",
-                            Price = 0.0,
+                            Price = 5.2999999999999998,
                             ProductCategoryId = 6
                         });
                 });

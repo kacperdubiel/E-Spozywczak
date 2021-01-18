@@ -49,52 +49,57 @@ namespace E_Spożywczak.Data
                     Id = 1,
                     Name = "Baton Mars",
                     MeasureType = MeasureType.Piece,
+                    Price = 2.30,
                     Availability = 50,
                     IsAvailable = true,
                     ImagePath = "baton_mars.jpg",
                     ProductCategoryId = 1,
                 },
-                 new Product()
-                 {
-                     Id = 2,
-                     Name = "Baton MilkyWay",
-                     MeasureType = MeasureType.Piece,
-                     Availability = 60,
-                     IsAvailable = true,
-                     ImagePath = "milky_way.jpg",
-                     ProductCategoryId = 1,
-                 },
-                  new Product()
-                  {
-                      Id = 3,
-                      Name = "Baton Snickers",
-                      MeasureType = MeasureType.Piece,
-                      Availability = 70,
-                      IsAvailable = true,
-                      ImagePath = "baton_snickers.jpg",
-                      ProductCategoryId = 1,
-                  },
-                  new Product()
-                  {
-                      Id = 4,
-                      Name = "Jabłko Gala",
-                      MeasureType = MeasureType.Kilogram,
-                      Availability = 40,
-                      IsAvailable = true,
-                      ImagePath = "jablko.jpg",
-                      ProductCategoryId = 2,
-                  },
-                  new Product()
-                  {
-                      Id = 5,
-                      Name = "Sos Bolognese",
-                      MeasureType = MeasureType.Kilogram,
-                      Availability = 40,
-                      IsAvailable = true,
-                      ImagePath = "sos_bolognese.jpg",
-                      ProductCategoryId = 6,
-                  }
-                  ); ;
+                new Product()
+                {
+                    Id = 2,
+                    Name = "Baton MilkyWay",
+                    MeasureType = MeasureType.Piece,
+                    Price = 1.90,
+                    Availability = 60,
+                    IsAvailable = true,
+                    ImagePath = "milky_way.jpg",
+                    ProductCategoryId = 1,
+                },
+                new Product()
+                {
+                    Id = 3,
+                    Name = "Baton Snickers",
+                    MeasureType = MeasureType.Piece,
+                    Price = 2.10,
+                    Availability = 70,
+                    IsAvailable = true,
+                    ImagePath = "baton_snickers.jpg",
+                    ProductCategoryId = 1,
+                },
+                new Product()
+                {
+                    Id = 4,
+                    Name = "Jabłko Gala",
+                    MeasureType = MeasureType.Kilogram,
+                    Price = 3.62,
+                    Availability = 40,
+                    IsAvailable = true,
+                    ImagePath = "jablko.jpg",
+                    ProductCategoryId = 2,
+                },
+                new Product()
+                {
+                    Id = 5,
+                    Name = "Sos Bolognese",
+                    MeasureType = MeasureType.Kilogram,
+                    Price = 5.30,
+                    Availability = 40,
+                    IsAvailable = true,
+                    ImagePath = "sos_bolognese.jpg",
+                    ProductCategoryId = 6,
+                }
+                ); ;
             modelBuilder.Entity<Rating>().HasData(
                 new Rating()
                 {

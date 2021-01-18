@@ -188,11 +188,11 @@ namespace E_Spożywczak.Migrations
                 columns: new[] { "Id", "Availability", "ImagePath", "IsAvailable", "MeasureType", "Name", "Price", "ProductCategoryId" },
                 values: new object[,]
                 {
-                    { 1, 50.0, "baton_mars.jpg", true, 0, "Baton Mars", 0.0, 1 },
-                    { 2, 60.0, "milky_way.jpg", true, 0, "Baton MilkyWay", 0.0, 1 },
-                    { 3, 70.0, "baton_snickers.jpg", true, 0, "Baton Snickers", 0.0, 1 },
-                    { 4, 40.0, "jablko.jpg", true, 1, "Jabłko Gala", 0.0, 2 },
-                    { 5, 40.0, "sos_bolognese.jpg", true, 1, "Sos Bolognese", 0.0, 6 }
+                    { 1, 50.0, "baton_mars.jpg", true, 0, "Baton Mars", 2.2999999999999998, 1 },
+                    { 2, 60.0, "milky_way.jpg", true, 0, "Baton MilkyWay", 1.8999999999999999, 1 },
+                    { 3, 70.0, "baton_snickers.jpg", true, 0, "Baton Snickers", 2.1000000000000001, 1 },
+                    { 4, 40.0, "jablko.jpg", true, 1, "Jabłko Gala", 3.6200000000000001, 2 },
+                    { 5, 40.0, "sos_bolognese.jpg", true, 1, "Sos Bolognese", 5.2999999999999998, 6 }
                 });
 
             migrationBuilder.InsertData(
