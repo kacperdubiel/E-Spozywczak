@@ -69,3 +69,32 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+/* CUSTOM
+-------------------------------------------------- */
+#products_page {
+    
+}
+
+#products_list {
+    float: right;
+    width: auto;
+    left: 0px;
+    right: 0px;
+}
+
+#products_left_menu {
+    float: left;
+    width: 200px;
+    margin-right: 5px;
+}
+
+#float_clear {
+    clear: both;
+}
+
+#products_category_btn {
+    width: auto;
+    margin-bottom: 5px;
+    display: block;
+}

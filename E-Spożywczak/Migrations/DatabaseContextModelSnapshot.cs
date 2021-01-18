@@ -126,8 +126,8 @@ namespace E_Spożywczak.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("ProductCategoryId")
                         .HasColumnType("int");
@@ -147,7 +147,7 @@ namespace E_Spożywczak.Migrations
                             IsAvailable = true,
                             MeasureType = 0,
                             Name = "Baton Mars",
-                            Price = 2.2999999999999998,
+                            Price = 2.30m,
                             ProductCategoryId = 1
                         },
                         new
@@ -158,7 +158,7 @@ namespace E_Spożywczak.Migrations
                             IsAvailable = true,
                             MeasureType = 0,
                             Name = "Baton MilkyWay",
-                            Price = 1.8999999999999999,
+                            Price = 1.90m,
                             ProductCategoryId = 1
                         },
                         new
@@ -169,7 +169,7 @@ namespace E_Spożywczak.Migrations
                             IsAvailable = true,
                             MeasureType = 0,
                             Name = "Baton Snickers",
-                            Price = 2.1000000000000001,
+                            Price = 2.10m,
                             ProductCategoryId = 1
                         },
                         new
@@ -180,7 +180,7 @@ namespace E_Spożywczak.Migrations
                             IsAvailable = true,
                             MeasureType = 1,
                             Name = "Jabłko Gala",
-                            Price = 3.6200000000000001,
+                            Price = 3.62m,
                             ProductCategoryId = 2
                         },
                         new
@@ -191,7 +191,7 @@ namespace E_Spożywczak.Migrations
                             IsAvailable = true,
                             MeasureType = 1,
                             Name = "Sos Bolognese",
-                            Price = 5.2999999999999998,
+                            Price = 5.30m,
                             ProductCategoryId = 6
                         });
                 });

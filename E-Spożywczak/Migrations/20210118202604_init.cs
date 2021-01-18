@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace E_Spożywczak.Migrations
 {
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -103,7 +103,7 @@ namespace E_Spożywczak.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Price = table.Column<double>(type: "float", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     MeasureType = table.Column<int>(type: "int", nullable: false),
                     Availability = table.Column<double>(type: "float", nullable: false),
                     IsAvailable = table.Column<bool>(type: "bit", nullable: false),
@@ -188,11 +188,11 @@ namespace E_Spożywczak.Migrations
                 columns: new[] { "Id", "Availability", "ImagePath", "IsAvailable", "MeasureType", "Name", "Price", "ProductCategoryId" },
                 values: new object[,]
                 {
-                    { 1, 50.0, "baton_mars.jpg", true, 0, "Baton Mars", 2.2999999999999998, 1 },
-                    { 2, 60.0, "milky_way.jpg", true, 0, "Baton MilkyWay", 1.8999999999999999, 1 },
-                    { 3, 70.0, "baton_snickers.jpg", true, 0, "Baton Snickers", 2.1000000000000001, 1 },
-                    { 4, 40.0, "jablko.jpg", true, 1, "Jabłko Gala", 3.6200000000000001, 2 },
-                    { 5, 40.0, "sos_bolognese.jpg", true, 1, "Sos Bolognese", 5.2999999999999998, 6 }
+                    { 1, 50.0, "baton_mars.jpg", true, 0, "Baton Mars", 2.30m, 1 },
+                    { 2, 60.0, "milky_way.jpg", true, 0, "Baton MilkyWay", 1.90m, 1 },
+                    { 3, 70.0, "baton_snickers.jpg", true, 0, "Baton Snickers", 2.10m, 1 },
+                    { 4, 40.0, "jablko.jpg", true, 1, "Jabłko Gala", 3.62m, 2 },
+                    { 5, 40.0, "sos_bolognese.jpg", true, 1, "Sos Bolognese", 5.30m, 6 }
                 });
 
             migrationBuilder.InsertData(
