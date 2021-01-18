@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace E_Spożywczak.Migrations
 {
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -103,6 +103,7 @@ namespace E_Spożywczak.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Price = table.Column<double>(type: "float", nullable: false),
                     MeasureType = table.Column<int>(type: "int", nullable: false),
                     Availability = table.Column<double>(type: "float", nullable: false),
                     IsAvailable = table.Column<bool>(type: "bit", nullable: false),
@@ -168,6 +169,41 @@ namespace E_Spożywczak.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "ProductCategory",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Słodycze" },
+                    { 2, "Owoce" },
+                    { 3, "Pieczywo" },
+                    { 4, "Makarony" },
+                    { 5, "Sery" },
+                    { 6, "Sosy" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Product",
+                columns: new[] { "Id", "Availability", "ImagePath", "IsAvailable", "MeasureType", "Name", "Price", "ProductCategoryId" },
+                values: new object[,]
+                {
+                    { 1, 50.0, "baton_mars.jpg", true, 0, "Baton Mars", 0.0, 1 },
+                    { 2, 60.0, "milky_way.jpg", true, 0, "Baton MilkyWay", 0.0, 1 },
+                    { 3, 70.0, "baton_snickers.jpg", true, 0, "Baton Snickers", 0.0, 1 },
+                    { 4, 40.0, "jablko.jpg", true, 1, "Jabłko Gala", 0.0, 2 },
+                    { 5, 40.0, "sos_bolognese.jpg", true, 1, "Sos Bolognese", 0.0, 6 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Rating",
+                columns: new[] { "Id", "Message", "ProductId", "Rate", "RatingDate" },
+                values: new object[] { 2, "Baton przeterminowany.", 1, 1, new DateTime(2021, 1, 18, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.InsertData(
+                table: "Rating",
+                columns: new[] { "Id", "Message", "ProductId", "Rate", "RatingDate" },
+                values: new object[] { 1, "Bardzo dobre jabłka!", 2, 4, new DateTime(2021, 1, 18, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Order_CartId",

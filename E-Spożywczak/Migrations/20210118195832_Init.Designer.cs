@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Spożywczak.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20210118191039_init")]
-    partial class init
+    [Migration("20210118195832_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -128,6 +128,9 @@ namespace E_Spożywczak.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
                     b.Property<int>("ProductCategoryId")
                         .HasColumnType("int");
 
@@ -136,6 +139,63 @@ namespace E_Spożywczak.Migrations
                     b.HasIndex("ProductCategoryId");
 
                     b.ToTable("Product");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Availability = 50.0,
+                            ImagePath = "baton_mars.jpg",
+                            IsAvailable = true,
+                            MeasureType = 0,
+                            Name = "Baton Mars",
+                            Price = 0.0,
+                            ProductCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Availability = 60.0,
+                            ImagePath = "milky_way.jpg",
+                            IsAvailable = true,
+                            MeasureType = 0,
+                            Name = "Baton MilkyWay",
+                            Price = 0.0,
+                            ProductCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Availability = 70.0,
+                            ImagePath = "baton_snickers.jpg",
+                            IsAvailable = true,
+                            MeasureType = 0,
+                            Name = "Baton Snickers",
+                            Price = 0.0,
+                            ProductCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Availability = 40.0,
+                            ImagePath = "jablko.jpg",
+                            IsAvailable = true,
+                            MeasureType = 1,
+                            Name = "Jabłko Gala",
+                            Price = 0.0,
+                            ProductCategoryId = 2
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Availability = 40.0,
+                            ImagePath = "sos_bolognese.jpg",
+                            IsAvailable = true,
+                            MeasureType = 1,
+                            Name = "Sos Bolognese",
+                            Price = 0.0,
+                            ProductCategoryId = 6
+                        });
                 });
 
             modelBuilder.Entity("E_Spożywczak.Models.ProductCategory", b =>
@@ -151,6 +211,38 @@ namespace E_Spożywczak.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ProductCategory");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Słodycze"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Owoce"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Pieczywo"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Makarony"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Sery"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Sosy"
+                        });
                 });
 
             modelBuilder.Entity("E_Spożywczak.Models.ProductInCart", b =>
@@ -202,6 +294,24 @@ namespace E_Spożywczak.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("Rating");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Message = "Bardzo dobre jabłka!",
+                            ProductId = 2,
+                            Rate = 4,
+                            RatingDate = new DateTime(2021, 1, 18, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Message = "Baton przeterminowany.",
+                            ProductId = 1,
+                            Rate = 1,
+                            RatingDate = new DateTime(2021, 1, 18, 0, 0, 0, 0, DateTimeKind.Local)
+                        });
                 });
 
             modelBuilder.Entity("E_Spożywczak.Models.Order", b =>

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using E_Spożywczak.Models;
 
 namespace E_Spożywczak.Data
 {
@@ -10,7 +11,108 @@ namespace E_Spożywczak.Data
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
-           // TODO: Add seed
+            modelBuilder.Entity<ProductCategory>().HasData(
+                new ProductCategory()
+                {
+                    Id = 1,
+                    Name = "Słodycze"
+                },
+                new ProductCategory()
+                {
+                    Id = 2,
+                    Name = "Owoce"
+                },
+                new ProductCategory()
+                {
+                    Id = 3,
+                    Name = "Pieczywo"
+                },
+                new ProductCategory()
+                {
+                    Id = 4,
+                    Name = "Makarony"
+                },
+                new ProductCategory()
+                {
+                    Id = 5,
+                    Name = "Sery"
+                },
+                new ProductCategory()
+                {
+                    Id = 6,
+                    Name = "Sosy"
+                }
+                ); ;
+            modelBuilder.Entity<Product>().HasData(
+                new Product()
+                {
+                    Id = 1,
+                    Name = "Baton Mars",
+                    MeasureType = MeasureType.Piece,
+                    Availability = 50,
+                    IsAvailable = true,
+                    ImagePath = "baton_mars.jpg",
+                    ProductCategoryId = 1,
+                },
+                 new Product()
+                 {
+                     Id = 2,
+                     Name = "Baton MilkyWay",
+                     MeasureType = MeasureType.Piece,
+                     Availability = 60,
+                     IsAvailable = true,
+                     ImagePath = "milky_way.jpg",
+                     ProductCategoryId = 1,
+                 },
+                  new Product()
+                  {
+                      Id = 3,
+                      Name = "Baton Snickers",
+                      MeasureType = MeasureType.Piece,
+                      Availability = 70,
+                      IsAvailable = true,
+                      ImagePath = "baton_snickers.jpg",
+                      ProductCategoryId = 1,
+                  },
+                  new Product()
+                  {
+                      Id = 4,
+                      Name = "Jabłko Gala",
+                      MeasureType = MeasureType.Kilogram,
+                      Availability = 40,
+                      IsAvailable = true,
+                      ImagePath = "jablko.jpg",
+                      ProductCategoryId = 2,
+                  },
+                  new Product()
+                  {
+                      Id = 5,
+                      Name = "Sos Bolognese",
+                      MeasureType = MeasureType.Kilogram,
+                      Availability = 40,
+                      IsAvailable = true,
+                      ImagePath = "sos_bolognese.jpg",
+                      ProductCategoryId = 6,
+                  }
+                  ); ;
+            modelBuilder.Entity<Rating>().HasData(
+                new Rating()
+                {
+                    Id = 1,
+                    Rate = 4,
+                    RatingDate = DateTime.Today,
+                    Message = "Bardzo dobre jabłka!",
+                    ProductId=2
+                },
+                new Rating()
+                {
+                    Id = 2,
+                    Rate = 1,
+                    RatingDate = DateTime.Today,
+                    Message = "Baton przeterminowany.",
+                    ProductId = 1
+                }
+                ); ;
         }
     }
 }
