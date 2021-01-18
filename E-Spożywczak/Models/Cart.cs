@@ -15,7 +15,6 @@ namespace E_Spożywczak.Models
         // Foreign
         ICollection<ProductInCart> ProductsInCart { get; set; }
 
-        public int OrderId { get; set; }
         public Order Order { get; set; }
     }
 }
