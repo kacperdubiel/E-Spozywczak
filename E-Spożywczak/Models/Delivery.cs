@@ -10,11 +10,17 @@ namespace E_Spożywczak.Models
     {
         // Primary
         [Key]
+        [Display(Name = "ID dostawy")]
         public int Id { get; set; }
+
+        [Display(Name = "Typ")]
         public string DeliveryTypeName { get; set; }
+
+        [Display(Name = "Cena")]
         public double Price { get; set; }
 
         // Foreign
+        [Display(Name = "Zamówienie")]
         public ICollection<Order> Orders { get; set; }
     }
 }

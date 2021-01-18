@@ -10,14 +10,23 @@ namespace E_Spożywczak.Models
     {
         // Primary
         [Key]
+        [Display(Name = "ID produktu w koszyku")]
         public int Id { get; set; }
+
+        [Display(Name = "Ilość produktu")]
         public double ProductAmount { get; set; }
 
         // Foreign
+        [Display(Name = "ID produktu")]
         public int ProductId { get; set; }
+
+        [Display(Name = "Produkt")]
         public Product Product { get; set; }
 
+        [Display(Name = "ID koszyka")]
         public int CartId { get; set; }
+
+        [Display(Name = "Koszyk")]
         public Cart Cart { get; set; }
     }
 }

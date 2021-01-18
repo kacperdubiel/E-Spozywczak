@@ -10,10 +10,14 @@ namespace E_Spożywczak.Models
     public class ProductCategory
     {
         // Primary
+        [Display(Name = "ID kategorii")]
         public int Id { get; set; }
+
+        [Display(Name = "Nazwa")]
         public string Name { get; set; }
 
         // Foreign
+        [Display(Name = "Produkty w kategorii")]
         public ICollection<Product> Products { get; set; }
     }
 }

@@ -10,9 +10,11 @@ namespace E_Spożywczak.Models
     {
         // Primary
         [Key]
+        [Display(Name = "ID historii")]
         public int Id { get; set; }
 
         // Foreign
+        [Display(Name = "Zamówienia w historii")]
         public ICollection<Order> Orders { get; set; }
     }
 }
