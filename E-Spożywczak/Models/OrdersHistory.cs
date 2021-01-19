@@ -15,6 +15,6 @@ namespace E_Spożywczak.Models
 
         // Foreign
         [Display(Name = "Zamówienia w historii")]
-        public ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

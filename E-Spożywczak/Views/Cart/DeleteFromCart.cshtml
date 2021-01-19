@@ -1,0 +1,34 @@
+﻿@model E_Spożywczak.Models.ProductInCart
+
+@{
+    ViewData["Title"] = "Usuń z koszyka";
+}
+
+<h3>Czy na pewno chcesz usunąć ten produkt z koszyka?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.Name): 
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.ImagePath): 
+        </dt>
+        <dd class="col-sm-10">
+            @{
+                string img_path = Model.Product.ImagePath == null ? "/image/no_image.jpg" : "/image/" + Model.Product.ImagePath;
+            }
+
+            <img src="@Url.Content(img_path)" style="max-height: 200px; max-width: 200px; height: auto; width: auto;" />
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteFromCart">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Usuń" class="btn btn-danger" /> 
+        <a class="btn btn-success" asp-action="Index">Powrót</a>
+    </form>
+</div>

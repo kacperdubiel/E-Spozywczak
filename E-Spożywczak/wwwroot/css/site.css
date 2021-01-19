@@ -92,6 +92,11 @@ body {
 
 #products_search_box {
     width: 30%;
+    padding: 1px;
+}
+
+#products_sort_select {
+    padding: 3px;
 }
 
 #products_left_menu {
@@ -119,14 +124,18 @@ body {
 #cart_products {
     display: inline-block;
     vertical-align: top;
-    width: 66%;
+    width: 74%;
     margin-right: 2%;
 }
 
 #cart_info {
     display: inline-block;
     vertical-align: top;
-    width: 30%;
+    width: 22%;
+}
+
+#cart_product_amount_box {
+    width: 50px;
 }
 
 /* ORDERS HISTORY
