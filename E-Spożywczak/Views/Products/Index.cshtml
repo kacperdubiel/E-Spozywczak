@@ -5,20 +5,30 @@
 }
 
 <div id="products_page">
-    <div id="products_top_menu">
-        <input type="text" id="products_search_box" name="products_search_box" placeholder="Szukaj...">
-    </div>
-
+    <form asp-action="Filter" asp-route-categoryid="@ViewBag.SelectedProductCategory">
+        <div id="products_top_menu">
+            <input type="text" id="products_search_box" name="search_box" placeholder="Szukaj..." value="@ViewBag.SearchBoxText">
+            <select class="form-select" name="sort_by" asp-items="@ViewBag.SortByList"> </select>
+            <input type="submit" value="Filtruj" class="btn btn-primary" />
+        </div>
+    </form>
     <div id="products_left_menu">
-        <a id="products_category_btn" class="btn btn-primary" asp-action="Index" asp-route-id="">Wszystkie</a>
+        <a id="products_category_btn" class="btn btn-primary" asp-action="Category" asp-route-id="-1" 
+           asp-route-searchbox="@ViewBag.SearchBoxText" asp-route-sortby="@ViewBag.SelectedSortItem">
+            Wszystkie
+        </a>
         @foreach (var c in ViewBag.ProductCategories)
         {
-            <a id="products_category_btn" class="btn btn-primary" asp-action="Index" asp-route-id="@c.Id">@c.Name</a>
+            <a id="products_category_btn" class="btn btn-primary" asp-action="Category" asp-route-id="@c.Id" 
+               asp-route-searchbox="@ViewBag.SearchBoxText" asp-route-sortby="@ViewBag.SelectedSortItem">
+                @c.Name
+            </a>
         }
     </div>
 
+
     <div id="products_list">
-        <table class="table">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th>
@@ -42,27 +52,27 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Price) zł
-                    </td>
-                    <td>
-                        @{
-                            string img_path = item.ImagePath == null ? "/image/no_image.jpg" : "/image/" + item.ImagePath;
-                        }
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price) zł
+                        </td>
+                        <td>
+                            @{
+                                string img_path = item.ImagePath == null ? "/image/no_image.jpg" : "/image/" + item.ImagePath;
+                            }
 
-                        <img src="@Url.Content(img_path)" style="max-height: 75px; max-width: 75px; height: auto; width: auto;" />
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Availability) @Html.DisplayFor(modelItem => item.MeasureType)
-                    </td>
-                    <td>
-                        <a asp-action="AddToCart" asp-route-id="@item.Id" class="btn btn-danger">Dodaj do koszyka</a>
-                    </td>
-                </tr>
+                            <img src="@Url.Content(img_path)" style="max-height: 75px; max-width: 75px; height: auto; width: auto;" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Availability) @Html.DisplayFor(modelItem => item.MeasureType)
+                        </td>
+                        <td>
+                            <a asp-action="AddToCart" asp-route-id="@item.Id" class="btn btn-danger">Dodaj do koszyka</a>
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>
@@ -70,5 +80,5 @@
 
     <div id="float_clear"></div>
 
-
+    
 </div>
