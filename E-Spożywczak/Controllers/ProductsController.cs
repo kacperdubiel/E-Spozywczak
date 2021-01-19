@@ -12,54 +12,43 @@ namespace E_Spożywczak.Controllers
     public class ProductsController : Controller
     {
         private readonly DatabaseContext _context;
-        private string _searchBoxText;
         private List<SelectListItem> _sortItemsList;
-        private string _sortBy;
-        private int _productCategoryId;
 
         public ProductsController(DatabaseContext context)
         {
             _context = context;
 
-            _searchBoxText = "";
-            _sortBy = "0";
-            _productCategoryId = -1;
-
             _sortItemsList = new List<SelectListItem>();
             CreateSortItemsList();
-            SelectSortItem(_sortItemsList, _sortBy);
         }
 
         public async Task<IActionResult> Index()
         {
-            ViewBag.SearchBoxText = _searchBoxText;
+            return await Filter(-1, "", "0");
+        }
 
-            SelectSortItem(_sortItemsList, _sortBy);
-            ViewBag.SelectedSortItem = _sortBy;
+        public async Task<IActionResult> Filter(int categoryid, string searchbox, string sortby)
+        {
+            ViewBag.SearchBoxText = searchbox;
+
+            SelectSortItem(_sortItemsList, sortby);
+            ViewBag.SelectedSortItem = sortby;
             ViewBag.SortByList = _sortItemsList;
 
-            ViewBag.SelectedProductCategory = _productCategoryId;
+            ViewBag.SelectedProductCategory = categoryid;
             ViewBag.ProductCategories = _context.ProductCategory.ToList();
 
             List<Models.Product> products = await _context.Product.ToListAsync();
 
-            if (_searchBoxText != null && _searchBoxText.Length > 0)
-                products = products.Where(x => x.Name.Contains(_searchBoxText)).ToList();
+            if (searchbox != null && searchbox.Length > 0)
+                products = products.Where(x => x.Name.Contains(searchbox)).ToList();
 
-            if (_productCategoryId >= 0 && _productCategoryId <= _context.ProductCategory.Count())
-                products = products.Where(x => x.ProductCategoryId == _productCategoryId).ToList();
+            if (categoryid >= 0 && categoryid <= _context.ProductCategory.Count())
+                products = products.Where(x => x.ProductCategoryId == categoryid).ToList();
 
-            products = SortProducts(products, _sortBy);
+            products = SortProducts(products, sortby);
 
             return View("Index", products);
-        }
-
-        public Task<IActionResult> Filter(int categoryid, string searchbox, string sortby)
-        {
-            _productCategoryId = categoryid;
-            _searchBoxText = searchbox;
-            _sortBy = sortby;
-            return Index();
         }
 
         private void CreateSortItemsList()

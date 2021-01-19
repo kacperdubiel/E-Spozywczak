@@ -12,6 +12,7 @@
             <input type="submit" value="Filtruj" class="btn btn-primary" />
         </div>
     </form>
+
     <div id="products_left_menu">
         <a id="products_category_btn" class="btn btn-primary" asp-action="Filter" asp-route-categoryid="-1" 
            asp-route-searchbox="@ViewBag.SearchBoxText" asp-route-sortby="@ViewBag.SelectedSortItem">
@@ -25,7 +26,6 @@
             </a>
         }
     </div>
-
 
     <div id="products_list">
         <table class="table table-hover">
