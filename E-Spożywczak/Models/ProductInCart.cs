@@ -16,6 +16,10 @@ namespace E_Spożywczak.Models
         [Display(Name = "Ilość produktu")]
         public double ProductAmount { get; set; }
 
+        [Column(TypeName = "decimal(18,2)")]
+        [Display(Name = "Cena całkowita")]
+        public decimal TotalPrice { get; set; }
+
         // Foreign
         [Display(Name = "ID produktu")]
         public int ProductId { get; set; }

@@ -28,7 +28,7 @@ namespace E_Spożywczak.Models
         public string Name { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
-        [Display(Name = "Cena")]
+        [Display(Name = "Cena za jednostkę")]
         public decimal Price { get; set; }
 
         [Display(Name = "Jednostka")]
