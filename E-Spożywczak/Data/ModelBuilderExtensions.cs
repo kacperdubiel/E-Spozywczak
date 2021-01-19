@@ -426,8 +426,8 @@ namespace E_Spożywczak.Data
                     Id = 1,
                     Rate = 4,
                     RatingDate = DateTime.Today,
-                    Message = "Bardzo dobre jabłka!",
-                    ProductId=2
+                    Message = "Bardzo dobre!",
+                    ProductId = 1
                 },
                 new Rating()
                 {
@@ -436,6 +436,22 @@ namespace E_Spożywczak.Data
                     RatingDate = DateTime.Today,
                     Message = "Baton przeterminowany.",
                     ProductId = 1
+                },
+                new Rating()
+                {
+                    Id = 3,
+                    Rate = 5,
+                    RatingDate = DateTime.Today,
+                    Message = "Super szybka dostawa!",
+                    ProductId = 1
+                },
+                new Rating()
+                {
+                    Id = 4,
+                    Rate = 5,
+                    RatingDate = DateTime.Today,
+                    Message = "Pyszne",
+                    ProductId = 2
                 }
                 ); ;
 
@@ -480,13 +496,102 @@ namespace E_Spożywczak.Data
                 }
                 ); ;
 
-                 modelBuilder.Entity<OrdersHistory>().HasData(
-                     new OrdersHistory()
-                     {
-                         Id = 1 
-                     }
+                modelBuilder.Entity<ProductInCart>().HasData(
+                new ProductInCart()
+                {
+                    Id = 1,
+                    ProductAmount = 1,
+                    ProductId = 1,
+                    CartId = 1
+                },
+                new ProductInCart()
+                {
+                    Id = 2,
+                    ProductAmount = 2,
+                    ProductId = 29,
+                    CartId = 1
+                },
+                new ProductInCart()
+                {
+                    Id = 3,
+                    ProductAmount = 3,
+                    ProductId = 17,
+                    CartId = 2
+                },
+                new ProductInCart()
+                {
+                    Id = 4,
+                    ProductAmount = 1,
+                    ProductId = 9,
+                    CartId = 2
+                },
+                new ProductInCart()
+                {
+                    Id = 5,
+                    ProductAmount = 1,
+                    ProductId = 21,
+                    CartId = 3
+                },
+                new ProductInCart()
+                {
+                    Id = 6,
+                    ProductAmount = 3,
+                    ProductId = 19,
+                    CartId = 3
+                },
+                new ProductInCart()
+                {
+                    Id = 7,
+                    ProductAmount = 2,
+                    ProductId = 25,
+                    CartId = 3
+                }
                 ); ;
 
+
+            modelBuilder.Entity<OrdersHistory>().HasData(
+                new OrdersHistory()
+                {
+                    Id = 1 
+                }
+                ); ;
+
+            modelBuilder.Entity<Order>().HasData(
+                new Order()
+                {
+                    Id = 1,
+                    DeliveryAddress = "Krynicka 14 50-555 Wrocław",
+                    OrderDate = DateTime.Today,
+                    TypeOfPayment = TypeOfPayment.OnDelivery,
+                    IsOrderPaid = true,
+                    OrderPaymentDate = DateTime.Today,
+                    DeliveryId = 1,
+                    CartId = 1,
+                    OrdersHistoryId = 1
+                },
+                new Order()
+                {
+                    Id = 2,
+                    DeliveryAddress = "Krynicka 14 50-555 Wrocław",
+                    OrderDate = DateTime.Today,
+                    TypeOfPayment = TypeOfPayment.Electronic,
+                    IsOrderPaid = false,
+                    DeliveryId = 2,
+                    CartId = 2,
+                    OrdersHistoryId = 1
+                },
+                new Order()
+                {
+                    Id = 3,
+                    DeliveryAddress = "Krynicka 14 50-555 Wrocław",
+                    OrderDate = DateTime.Today,
+                    TypeOfPayment = TypeOfPayment.Electronic,
+                    IsOrderPaid = false,
+                    DeliveryId = 3,
+                    CartId = 3,
+                    OrdersHistoryId = 1
+                }
+                ); ;
         }
     }
 }
