@@ -19,7 +19,13 @@ namespace E_Spożywczak.Controllers
 
         public async Task<IActionResult> Index()
         {
-            List<Models.ProductInCart> productsInCart = await _context.ProductInCart.ToListAsync();
+
+            Models.Cart cart = await _context.Cart.FindAsync(_context.CurrentCartId);
+
+            List<Models.ProductInCart> productsInCart = new List<Models.ProductInCart>();
+
+            if (cart != null)
+                productsInCart = cart.ProductsInCart.ToList();
 
             return View("Index", productsInCart);
         }

@@ -15,7 +15,7 @@ namespace E_Spożywczak.Models
 
         // Foreign
         [Display(Name = "Produkty w koszyku")]
-        ICollection<ProductInCart> ProductsInCart { get; set; }
+        public ICollection<ProductInCart> ProductsInCart { get; set; }
 
         [Display(Name = "Zamówienie")]
         public Order Order { get; set; }

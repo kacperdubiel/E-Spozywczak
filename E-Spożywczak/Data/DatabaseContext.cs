@@ -9,9 +9,13 @@ namespace E_Spożywczak.Data
 {
     public class DatabaseContext : DbContext
     {
+        public int CurrentCartId { get; set; }
+        public int CurrentOrdersHistoryId { get; set; }
+
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
-             
+            CurrentCartId = 1;
+            CurrentOrdersHistoryId = 1;
         }
 
         public DbSet<Cart> Cart { get; set; }
