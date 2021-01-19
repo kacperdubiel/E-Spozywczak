@@ -17,9 +17,6 @@ namespace E_Spożywczak.Models
         [Display(Name = "Produkty w koszyku")]
         public ICollection<ProductInCart> ProductsInCart { get; set; }
 
-        [Display(Name = "ID zamówienia")]
-        public int OrderId { get; set; }
-
         [Display(Name = "Zamówienie")]
         public Order Order { get; set; }
     }

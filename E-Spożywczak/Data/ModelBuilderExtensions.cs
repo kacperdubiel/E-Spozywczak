@@ -455,21 +455,19 @@ namespace E_Spożywczak.Data
                 }
                 ); ;
 
-                modelBuilder.Entity<Cart>().HasData(
+                modelBuilder.Entity<Cart>()
+                .HasData(
                 new Cart()
                 {
                     Id = 1,
-                    OrderId = 1
                 },
                 new Cart()
                 {
                     Id = 2,
-                    OrderId = 2
                 },
                 new Cart()
                 {
                     Id = 3,
-                    OrderId = 3
                 }
                 ); ;
 
@@ -489,7 +487,7 @@ namespace E_Spożywczak.Data
                 },
                 new Delivery()
                 {
-                    Id = 2,
+                    Id = 3,
                     DeliveryTypeName = "Kurier DHL",
                     Price = 12.90
 
