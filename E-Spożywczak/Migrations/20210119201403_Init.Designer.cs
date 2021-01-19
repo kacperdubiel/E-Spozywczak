@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Spożywczak.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20210119200951_Init")]
+    [Migration("20210119201403_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -431,7 +431,7 @@ namespace E_Spożywczak.Migrations
                             Id = 17,
                             Availability = 46.0,
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam hendrerit sagittis vulputate. Pellentesque pretium ipsum augue, at fringilla elit tempus in. Ut sagittis neque elit, nec interdum erat consectetur eu. Sed sollicitudin gravida vehicula. Cras suscipit magna eu pulvinar consequat. Donec lectus nibh, tempus sed vehicula a, vulputate ut justo. Mauris laoreet lorem dignissim, semper leo id, aliquam dolor. Nam id ligula pulvinar, pharetra odio sed, facilisis nibh. Mauris vehicula rutrum dolor, ac hendrerit libero hendrerit id.",
-                            ImagePath = "bułka_paryska.jpg",
+                            ImagePath = "bulka_paryska.jpg",
                             IsAvailable = true,
                             MeasureType = 0,
                             Name = "Bułka paryska",
