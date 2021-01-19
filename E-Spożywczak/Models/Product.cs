@@ -27,6 +27,9 @@ namespace E_Spożywczak.Models
         [Display(Name = "Nazwa")]
         public string Name { get; set; }
 
+        [Display(Name = "Opis")]
+        public string Description { get; set; }
+
         [Column(TypeName = "decimal(18,2)")]
         [Display(Name = "Cena za jednostkę")]
         public decimal Price { get; set; }
