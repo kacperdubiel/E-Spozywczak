@@ -66,6 +66,7 @@ namespace E_Spożywczak.Controllers
 
         public Task<IActionResult> Filter(int categoryid, string search_box, string sort_by)
         {
+            _productCategoryId = categoryid;
             _searchBoxText = search_box;
             _sortBy = sort_by;
             System.Diagnostics.Debug.WriteLine($"Filter: {search_box}, {sort_by}");
