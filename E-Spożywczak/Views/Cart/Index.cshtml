@@ -1,11 +1,72 @@
-﻿@model IEnumerable<E_Spożywczak.Models.Product>
+﻿@model IEnumerable<E_Spożywczak.Models.ProductInCart>
 
 @{
     ViewData["Title"] = "Koszyk";
 }
 
 <div id="page">
-   
+    <div id="cart_products">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Product.ImagePath)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Product.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Product.Price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductAmount)
+                    </th>
+                    <th>
+                        Opcje
+                    </th>
 
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @{
+                                string img_path = item.Product.ImagePath == null ? "/image/no_image.jpg" : "/image/" + item.Product.ImagePath;
+                            }
+
+                            <img src="@Url.Content(img_path)" style="max-height: 75px; max-width: 75px; height: auto; width: auto;" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.Price) zł
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductAmount) @Html.DisplayFor(modelItem => item.Product.MeasureType)
+                        </td>
+                        <td>
+                            <a asp-controller="Cart" asp-action="DeleteFromCart" asp-route-id="@item.Id" class="btn btn-danger">Usuń</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        
+    </div>
+
+    <div id="cart_info">
+        <div>
+            Łącznie xxx zł
+
+        </div>
+        <div>
+            <a asp-controller="" asp-action="" class="btn btn-primary">Realizacja zamówienia</a>
+        </div>
+    </div>
+
+    <div id="float_clear"></div>
 
 </div>
