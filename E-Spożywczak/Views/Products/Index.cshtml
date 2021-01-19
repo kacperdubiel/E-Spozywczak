@@ -4,7 +4,7 @@
     ViewData["Title"] = "Produkty";
 }
 
-<div id="products_page">
+<div id="page">
     <form asp-action="Filter" asp-route-categoryid="@ViewBag.SelectedProductCategory">
         <div id="products_top_menu">
             <input type="text" id="products_search_box" name="searchbox" placeholder="Szukaj..." value="@ViewBag.SearchBoxText">

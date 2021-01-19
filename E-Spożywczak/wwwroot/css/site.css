@@ -72,10 +72,16 @@ body {
 
 /* CUSTOM
 -------------------------------------------------- */
-#products_page {
+#page {
     
 }
 
+#float_clear {
+    clear: both;
+}
+
+/* PRODUCTS
+-------------------------------------------------- */
 #products_top_menu {
     width: auto;
     border: solid 2px rgba(0, 0, 1, .15);
@@ -99,10 +105,6 @@ body {
     display: inline-block;
     vertical-align: top;
     width: 80%;
-}
-
-#float_clear {
-    clear: both;
 }
 
 #products_category_btn {
