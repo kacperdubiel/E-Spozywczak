@@ -32,7 +32,6 @@ namespace E_Spożywczak.Controllers
 
         public async Task<IActionResult> Index()
         {
-            System.Diagnostics.Debug.WriteLine($"Index: {_productCategoryId}, {_searchBoxText}, {_sortBy}");
             ViewBag.SearchBoxText = _searchBoxText;
 
             SelectSortItem(_sortItemsList, _sortBy);
@@ -55,21 +54,11 @@ namespace E_Spożywczak.Controllers
             return View("Index", products);
         }
 
-        public Task<IActionResult> Category(int id, string searchbox, string sortby)
-        {
-            _productCategoryId = id;
-            _searchBoxText = searchbox;
-            _sortBy = sortby;
-            System.Diagnostics.Debug.WriteLine($"Category: {id}, {searchbox}, {sortby}");
-            return Index();
-        }
-
-        public Task<IActionResult> Filter(int categoryid, string search_box, string sort_by)
+        public Task<IActionResult> Filter(int categoryid, string searchbox, string sortby)
         {
             _productCategoryId = categoryid;
-            _searchBoxText = search_box;
-            _sortBy = sort_by;
-            System.Diagnostics.Debug.WriteLine($"Filter: {search_box}, {sort_by}");
+            _searchBoxText = searchbox;
+            _sortBy = sortby;
             return Index();
         }
 

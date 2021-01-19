@@ -7,19 +7,19 @@
 <div id="products_page">
     <form asp-action="Filter" asp-route-categoryid="@ViewBag.SelectedProductCategory">
         <div id="products_top_menu">
-            <input type="text" id="products_search_box" name="search_box" placeholder="Szukaj..." value="@ViewBag.SearchBoxText">
-            <select class="form-select" name="sort_by" asp-items="@ViewBag.SortByList"> </select>
+            <input type="text" id="products_search_box" name="searchbox" placeholder="Szukaj..." value="@ViewBag.SearchBoxText">
+            <select class="form-select" name="sortby" asp-items="@ViewBag.SortByList"> </select>
             <input type="submit" value="Filtruj" class="btn btn-primary" />
         </div>
     </form>
     <div id="products_left_menu">
-        <a id="products_category_btn" class="btn btn-primary" asp-action="Category" asp-route-id="-1" 
+        <a id="products_category_btn" class="btn btn-primary" asp-action="Filter" asp-route-categoryid="-1" 
            asp-route-searchbox="@ViewBag.SearchBoxText" asp-route-sortby="@ViewBag.SelectedSortItem">
             Wszystkie
         </a>
         @foreach (var c in ViewBag.ProductCategories)
         {
-            <a id="products_category_btn" class="btn btn-primary" asp-action="Category" asp-route-id="@c.Id" 
+            <a id="products_category_btn" class="btn btn-primary" asp-action="Filter" asp-route-categoryid="@c.Id" 
                asp-route-searchbox="@ViewBag.SearchBoxText" asp-route-sortby="@ViewBag.SelectedSortItem">
                 @c.Name
             </a>
