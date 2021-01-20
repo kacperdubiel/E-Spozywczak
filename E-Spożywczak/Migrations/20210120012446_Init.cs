@@ -215,9 +215,9 @@ namespace E_Spożywczak.Migrations
                 columns: new[] { "Id", "CartId", "DeliveryAddress", "DeliveryId", "IsOrderPaid", "OrderDate", "OrderPaymentDate", "OrdersHistoryId", "TypeOfPayment" },
                 values: new object[,]
                 {
-                    { 1, 1, "Krynicka 14 50-555 Wrocław", 1, true, new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local), 1, 1 },
-                    { 2, 2, "Krynicka 14 50-555 Wrocław", 2, false, new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 0 },
-                    { 3, 3, "Krynicka 14 50-555 Wrocław", 3, false, new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 0 }
+                    { 1, 1, "Krynicka 14 50-555 Wrocław", 1, true, new DateTime(2021, 1, 20, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2021, 1, 20, 0, 0, 0, 0, DateTimeKind.Local), 1, 1 },
+                    { 2, 2, "Krynicka 14 50-555 Wrocław", 2, false, new DateTime(2021, 1, 20, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 0 },
+                    { 3, 3, "Krynicka 14 50-555 Wrocław", 3, false, new DateTime(2021, 1, 20, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -276,10 +276,10 @@ namespace E_Spożywczak.Migrations
                 columns: new[] { "Id", "Message", "ProductId", "Rate", "RatingDate" },
                 values: new object[,]
                 {
-                    { 1, "Bardzo dobre!", 1, 4, new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local) },
-                    { 2, "Baton przeterminowany.", 1, 1, new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local) },
-                    { 3, "Super szybka dostawa!", 1, 5, new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local) },
-                    { 4, "Pyszne", 2, 5, new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local) }
+                    { 1, "Bardzo dobre!", 1, 4, new DateTime(2021, 1, 20, 0, 0, 0, 0, DateTimeKind.Local) },
+                    { 2, "Baton przeterminowany.", 1, 1, new DateTime(2021, 1, 20, 0, 0, 0, 0, DateTimeKind.Local) },
+                    { 3, "Super szybka dostawa!", 1, 5, new DateTime(2021, 1, 20, 0, 0, 0, 0, DateTimeKind.Local) },
+                    { 4, "Pyszne", 2, 5, new DateTime(2021, 1, 20, 0, 0, 0, 0, DateTimeKind.Local) }
                 });
 
             migrationBuilder.CreateIndex(
