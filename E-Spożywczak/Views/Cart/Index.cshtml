@@ -31,30 +31,32 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var productInCart in Model)
                 {
                     <tr>
                         <td>
                             @{
-                                string img_path = item.Product.ImagePath == null ? "/image/no_image.jpg" : "/image/" + item.Product.ImagePath;
+                                string img_path = productInCart.Product.ImagePath == null ? "/image/no_image.jpg" : "/image/" + productInCart.Product.ImagePath;
                             }
 
                             <img src="@Url.Content(img_path)" style="max-height: 75px; max-width: 75px; height: auto; width: auto;" />
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Product.Name)
+                            @Html.DisplayFor(modelItem => productInCart.Product.Name)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.TotalPrice) zł
+                            @Html.DisplayFor(modelItem => productInCart.TotalPrice) zł
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Product.Price) zł
+                            @Html.DisplayFor(modelItem => productInCart.Product.Price) zł
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ProductAmount) @Html.DisplayFor(modelItem => item.Product.MeasureType)
+                            <input type="text" id="cart_product_amount_box" name="searchbox" 
+                                   value="@productInCart.ProductAmount" required="required">
+                            @Html.DisplayFor(modelItem => productInCart.Product.MeasureType)
                         </td>
                         <td>
-                            <a asp-controller="Cart" asp-action="DeleteFromCart" asp-route-id="@item.Id" class="btn btn-danger">Usuń</a>
+                            <a asp-action="DeleteFromCart" asp-route-id="@productInCart.Id" class="btn btn-danger">Usuń</a>
                         </td>
                     </tr>
                 }
@@ -65,9 +67,11 @@
 
     <div id="cart_info">
         <div>
-            Łącznie xxx zł
+            Łącznie @ViewBag.TotalCartPrice zł
 
         </div>
+        <br />
+        <hr />
         <div>
             <a asp-controller="" asp-action="" class="btn btn-primary">Realizacja zamówienia</a>
         </div>

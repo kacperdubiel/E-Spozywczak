@@ -14,7 +14,7 @@ namespace E_Spożywczak.Data
 
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
-            CurrentCartId = 1;
+            CurrentCartId = 3;
             CurrentOrdersHistoryId = 1;
         }
 
