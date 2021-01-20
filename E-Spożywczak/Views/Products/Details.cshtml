@@ -1,0 +1,52 @@
+﻿@model E_Spożywczak.Models.Product
+@{
+    ViewData["Title"] = "Details";
+    string img_path = Model.ImagePath == null ? "/image/no_image.jpg" : "/image/" + Model.ImagePath;
+    string av_color = "black";
+    if (Model.Availability <= 3)
+        av_color = "red";
+}
+<div style="display:grid">
+    <div>
+        <h1>@Html.DisplayFor(model => model.Name)</h1>
+        <hr />
+        <div style="width:70%; float:left">
+            <dl>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+                <dt style="color:@av_color">
+                    @Html.DisplayNameFor(model => model.Availability)
+                </dt>
+                <dd style="color:@av_color">
+                    @Html.DisplayFor(model => model.Availability)
+                    @Html.DisplayFor(model => model.MeasureType)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Price)
+                    zł.
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProductCategory)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ProductCategory.Name)
+                </dd>
+            </dl>
+        </div>
+        <div style="width:30%; float:right">
+            <img src="@Url.Content(img_path)" style="display:block; max-height: 200px; max-width: 200px; height: auto; width: auto; margin-left: auto; margin-right: auto" />
+        </div>
+    </div>
+    <div>
+        <hr />
+        <a asp-action="AddToCart" asp-route-id=Model.Id class="btn btn-danger">Dodaj do koszyka</a>
+        <a asp-action="Index" class="btn btn-danger">Back to List</a>
+    </div>
+</div>

@@ -66,10 +66,18 @@
 
                             <img src="@Url.Content(img_path)" style="max-height: 75px; max-width: 75px; height: auto; width: auto;" />
                         </td>
-                        <td>
+                        @{ 
+                            string av_color = "black";
+                            if(item.Availability <= 3)
+                            {
+                                av_color = "red";
+                            }
+                        }
+                        <td style="color:@av_color">
                             @Html.DisplayFor(modelItem => item.Availability) @Html.DisplayFor(modelItem => item.MeasureType)
                         </td>
                         <td>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-danger">Szczegóły</a>
                             <a asp-action="AddToCart" asp-route-id="@item.Id" class="btn btn-danger">Dodaj do koszyka</a>
                         </td>
                     </tr>
@@ -79,6 +87,4 @@
     </div>
 
     <div id="float_clear"></div>
-
-    
 </div>
