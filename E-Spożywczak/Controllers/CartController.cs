@@ -19,13 +19,14 @@ namespace E_Spożywczak.Controllers
 
         public IActionResult Index()
         {
-            Models.Cart cart = _context.Cart.Include("ProductsInCart.Product").FirstOrDefault(x => x.Id == _context.CurrentCartId);
+            Models.Cart cart = _context.Cart.Include("ProductsInCart.Product").FirstOrDefault(x => x.Id == _context.GetCurrentCartId());
 
             List <Models.ProductInCart> productsInCart = new List<Models.ProductInCart>();
 
             if (cart != null)
                 productsInCart = cart.ProductsInCart.ToList();
 
+            // To to w ogole najlepiej wywalić bo jak ktoś zmieni ilość rzeczy w koszyku to rip. może jakoś JSem wyliczyć idk
             decimal totalCartPrice = 0M;
             foreach (Models.ProductInCart productInCart in productsInCart)
             {
@@ -49,7 +50,7 @@ namespace E_Spożywczak.Controllers
                     ProductAmount = 1,
                     TotalPrice = product.Price,
                     ProductId = productid,
-                    CartId = _context.CurrentCartId
+                    CartId = _context.GetCurrentCartId()
                 };
 
 
@@ -69,6 +70,7 @@ namespace E_Spożywczak.Controllers
 
             var productInCart = await _context.ProductInCart.Include("Product")
                 .FirstOrDefaultAsync(p => p.Id == id);
+
             if (productInCart == null)
             {
                 return NotFound();

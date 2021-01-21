@@ -5,78 +5,83 @@
 }
 
 <div id="page">
-    <div id="cart_products">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Product.ImagePath)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Product.Name)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.TotalPrice)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Product.Price)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ProductAmount)
-                    </th>
-                    <th>
-                        Opcje
-                    </th>
-
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var productInCart in Model)
-                {
+    <form method="post">
+        <div id="cart_products">
+            <table class="table table-hover">
+                <thead>
                     <tr>
-                        <td>
-                            @{
-                                string img_path = productInCart.Product.ImagePath == null ? "/image/no_image.jpg" : "/image/" + productInCart.Product.ImagePath;
-                            }
+                        <th>
+                            @Html.DisplayNameFor(model => model.Product.ImagePath)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Product.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Product.Price)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProductAmount)
+                        </th>
+                        <th>
+                            Opcje
+                        </th>
 
-                            <img src="@Url.Content(img_path)" style="max-height: 75px; max-width: 75px; height: auto; width: auto;" />
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => productInCart.Product.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => productInCart.TotalPrice) zł
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => productInCart.Product.Price) zł
-                        </td>
-                        <td>
-                            <input type="text" id="cart_product_amount_box" name="searchbox" 
-                                   value="@productInCart.ProductAmount" required="required">
-                            @Html.DisplayFor(modelItem => productInCart.Product.MeasureType)
-                        </td>
-                        <td>
-                            <a asp-action="DeleteFromCart" asp-route-id="@productInCart.Id" class="btn btn-danger">Usuń</a>
-                        </td>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var productInCart in Model)
+                    {
+                        <tr>
+                            <td>
+                                @{
+                                    string img_path = productInCart.Product.ImagePath == null ? "/image/no_image.jpg" : "/image/" + productInCart.Product.ImagePath;
+                                }
+
+                                <img src="@Url.Content(img_path)" style="max-height: 75px; max-width: 75px; height: auto; width: auto;" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => productInCart.Product.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => productInCart.Product.Price) zł
+                            </td>
+                            <td>
+                                @{
+                                    if (productInCart.Product.MeasureType == MeasureType.Piece)
+                                    {
+                                        <input type="number" min="1" max="99" step="1" id="cart_product_amount_box" name="productamount"
+                                               value="@productInCart.ProductAmount" required="required">
+                                    }
+                                    else
+                                    {
+                                        <input type="number" min="0.1" max="99.9" step="0.1" id="cart_product_amount_box" name="productamount"
+                                               value="@productInCart.ProductAmount" required="required">
+                                    }
+                                }
+                                @Html.DisplayFor(modelItem => productInCart.Product.MeasureType)
+                            </td>
+                            <td>
+                                <a asp-action="DeleteFromCart" asp-route-id="@productInCart.Id" class="btn btn-danger">Usuń</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
         
-    </div>
-
-    <div id="cart_info">
-        <div>
-            Łącznie @ViewBag.TotalCartPrice zł
-
         </div>
-        <br />
-        <hr />
-        <div>
-            <a asp-controller="" asp-action="" class="btn btn-primary">Realizacja zamówienia</a>
+
+        <div id="cart_info">
+            <div>
+                Łącznie @ViewBag.TotalCartPrice zł
+
+            </div>
+            <br />
+            <hr />
+            <div>
+                <input type="submit" asp-controller="Order" asp-action="Index" class="btn btn-success" value="Realizacja zamówienia"/>
+            </div>
         </div>
-    </div>
 
-    <div id="float_clear"></div>
-
+        <div id="float_clear"></div>
+    </form>
 </div>

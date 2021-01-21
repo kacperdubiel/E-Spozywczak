@@ -18,6 +18,6 @@ namespace E_Spożywczak.Models
 
         // Foreign
         [Display(Name = "Produkty w kategorii")]
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual IList<Product> Products { get; set; }
     }
 }

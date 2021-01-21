@@ -26,6 +26,9 @@ namespace E_Spożywczak.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Cart");
@@ -33,15 +36,18 @@ namespace E_Spożywczak.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1
+                            Id = 1,
+                            TotalPrice = 0m
                         },
                         new
                         {
-                            Id = 2
+                            Id = 2,
+                            TotalPrice = 0m
                         },
                         new
                         {
-                            Id = 3
+                            Id = 3,
+                            TotalPrice = 0m
                         });
                 });
 
@@ -133,8 +139,8 @@ namespace E_Spożywczak.Migrations
                             DeliveryAddress = "Krynicka 14 50-555 Wrocław",
                             DeliveryId = 1,
                             IsOrderPaid = true,
-                            OrderDate = new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local),
-                            OrderPaymentDate = new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            OrderDate = new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local),
+                            OrderPaymentDate = new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local),
                             OrdersHistoryId = 1,
                             TypeOfPayment = 1
                         },
@@ -145,7 +151,7 @@ namespace E_Spożywczak.Migrations
                             DeliveryAddress = "Krynicka 14 50-555 Wrocław",
                             DeliveryId = 2,
                             IsOrderPaid = false,
-                            OrderDate = new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            OrderDate = new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local),
                             OrderPaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrdersHistoryId = 1,
                             TypeOfPayment = 0
@@ -157,7 +163,7 @@ namespace E_Spożywczak.Migrations
                             DeliveryAddress = "Krynicka 14 50-555 Wrocław",
                             DeliveryId = 3,
                             IsOrderPaid = false,
-                            OrderDate = new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            OrderDate = new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local),
                             OrderPaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrdersHistoryId = 1,
                             TypeOfPayment = 0
@@ -173,7 +179,7 @@ namespace E_Spożywczak.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("OrderHistory");
+                    b.ToTable("OrdersHistory");
 
                     b.HasData(
                         new
@@ -747,7 +753,7 @@ namespace E_Spożywczak.Migrations
                             Message = "Bardzo dobre!",
                             ProductId = 1,
                             Rate = 4,
-                            RatingDate = new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local)
+                            RatingDate = new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
@@ -755,7 +761,7 @@ namespace E_Spożywczak.Migrations
                             Message = "Baton przeterminowany.",
                             ProductId = 1,
                             Rate = 1,
-                            RatingDate = new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local)
+                            RatingDate = new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
@@ -763,7 +769,7 @@ namespace E_Spożywczak.Migrations
                             Message = "Super szybka dostawa!",
                             ProductId = 1,
                             Rate = 5,
-                            RatingDate = new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local)
+                            RatingDate = new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
@@ -771,7 +777,7 @@ namespace E_Spożywczak.Migrations
                             Message = "Pyszne",
                             ProductId = 2,
                             Rate = 5,
-                            RatingDate = new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local)
+                            RatingDate = new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local)
                         });
                 });
 

@@ -47,6 +47,7 @@ namespace E_Spożywczak.Models
 
         [Display(Name = "ID historii")]
         public int OrdersHistoryId { get; set; }
+
         [Display(Name = "Historia")]
         public OrdersHistory OrdersHistory { get; set; }
     }

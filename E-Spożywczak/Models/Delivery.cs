@@ -21,6 +21,6 @@ namespace E_Spożywczak.Models
 
         // Foreign
         [Display(Name = "Zamówienie")]
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual IList<Order> Orders { get; set; }
     }
 }

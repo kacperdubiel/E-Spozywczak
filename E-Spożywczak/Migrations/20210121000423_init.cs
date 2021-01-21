@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace E_Spożywczak.Migrations
 {
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,8 @@ namespace E_Spożywczak.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1")
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -34,7 +35,7 @@ namespace E_Spożywczak.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "OrderHistory",
+                name: "OrdersHistory",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -42,7 +43,7 @@ namespace E_Spożywczak.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrderHistory", x => x.Id);
+                    table.PrimaryKey("PK_OrdersHistory", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -89,9 +90,9 @@ namespace E_Spożywczak.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Order_OrderHistory_OrdersHistoryId",
+                        name: "FK_Order_OrdersHistory_OrdersHistoryId",
                         column: x => x.OrdersHistoryId,
-                        principalTable: "OrderHistory",
+                        principalTable: "OrdersHistory",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -174,12 +175,12 @@ namespace E_Spożywczak.Migrations
 
             migrationBuilder.InsertData(
                 table: "Cart",
-                column: "Id",
-                values: new object[]
+                columns: new[] { "Id", "TotalPrice" },
+                values: new object[,]
                 {
-                    1,
-                    2,
-                    3
+                    { 1, 0m },
+                    { 2, 0m },
+                    { 3, 0m }
                 });
 
             migrationBuilder.InsertData(
@@ -193,7 +194,7 @@ namespace E_Spożywczak.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "OrderHistory",
+                table: "OrdersHistory",
                 column: "Id",
                 value: 1);
 
@@ -215,9 +216,9 @@ namespace E_Spożywczak.Migrations
                 columns: new[] { "Id", "CartId", "DeliveryAddress", "DeliveryId", "IsOrderPaid", "OrderDate", "OrderPaymentDate", "OrdersHistoryId", "TypeOfPayment" },
                 values: new object[,]
                 {
-                    { 1, 1, "Krynicka 14 50-555 Wrocław", 1, true, new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local), 1, 1 },
-                    { 2, 2, "Krynicka 14 50-555 Wrocław", 2, false, new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 0 },
-                    { 3, 3, "Krynicka 14 50-555 Wrocław", 3, false, new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 0 }
+                    { 1, 1, "Krynicka 14 50-555 Wrocław", 1, true, new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local), 1, 1 },
+                    { 2, 2, "Krynicka 14 50-555 Wrocław", 2, false, new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 0 },
+                    { 3, 3, "Krynicka 14 50-555 Wrocław", 3, false, new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -276,10 +277,10 @@ namespace E_Spożywczak.Migrations
                 columns: new[] { "Id", "Message", "ProductId", "Rate", "RatingDate" },
                 values: new object[,]
                 {
-                    { 1, "Bardzo dobre!", 1, 4, new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local) },
-                    { 2, "Baton przeterminowany.", 1, 1, new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local) },
-                    { 3, "Super szybka dostawa!", 1, 5, new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local) },
-                    { 4, "Pyszne", 2, 5, new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Local) }
+                    { 1, "Bardzo dobre!", 1, 4, new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local) },
+                    { 2, "Baton przeterminowany.", 1, 1, new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local) },
+                    { 3, "Super szybka dostawa!", 1, 5, new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local) },
+                    { 4, "Pyszne", 2, 5, new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local) }
                 });
 
             migrationBuilder.CreateIndex(
@@ -334,7 +335,7 @@ namespace E_Spożywczak.Migrations
                 name: "Delivery");
 
             migrationBuilder.DropTable(
-                name: "OrderHistory");
+                name: "OrdersHistory");
 
             migrationBuilder.DropTable(
                 name: "Cart");

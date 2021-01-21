@@ -1,0 +1,119 @@
+﻿@model E_Spożywczak.Models.Cart
+
+@{
+    ViewData["Title"] = "Zamówienie";
+}
+
+<div id="page">
+    <form method="post">
+        <div id="order_products">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProductsInCart[0].Product.ImagePath)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProductsInCart[0].Product.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProductsInCart[0].Product.Price)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProductsInCart[0].ProductAmount)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProductsInCart[0].TotalPrice)
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var productInCart in Model.ProductsInCart)
+                    {
+                        <tr>
+                            <td>
+                                @{
+                                    string img_path = productInCart.Product.ImagePath == null ? "/image/no_image.jpg" : "/image/" + productInCart.Product.ImagePath;
+                                }
+
+                                <img src="@Url.Content(img_path)" style="max-height: 75px; max-width: 75px; height: auto; width: auto;" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => productInCart.Product.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => productInCart.Product.Price) zł
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => productInCart.ProductAmount)
+                                @Html.DisplayFor(modelItem => productInCart.Product.MeasureType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => productInCart.TotalPrice) zł
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div id="right_sizer">
+                .
+            </div>
+            <div id="products_total_cost">
+                <span>
+                    <b>Łącznie: @Html.DisplayFor(model => model.TotalPrice) zł</b>
+                </span>
+            </div>
+
+        </div>
+
+        <div id="order_delivery">
+            <div class="margin-bottom-5">
+                <b>Dostawa:</b>
+            </div>
+            <div id="inner">
+                <input type="text" id="delivery_address_box" name="address" placeholder="Ulica i numer mieszkania" />
+
+                <input type="text" id="delivery_post_code_box" name="postcode" placeholder="Kod pocztowy" />
+                <input type="text" id="delivery_city_box" name="city" placeholder="Miejscowość" />
+
+                <input type="text" id="delivery_country_box" name="country" placeholder="Kraj" />
+            </div>
+            <div>
+
+                @foreach (var delivery in ViewBag.Delivery)
+                {
+                    <div>
+                        <input type="radio" id="delivery_@delivery.Id" name="delivery_type" value="@delivery.Id">
+
+                        <label for="delivery_@delivery.Id">@delivery.DeliveryTypeName (@delivery.Price zł)</label>
+                    </div>
+                           
+
+                }
+
+            </div>
+            
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <div id="cart_info">
+            
+            <br />
+            <hr />
+            <div>
+                <input type="submit" asp-controller="" asp-action="" class="btn btn-success" value="Realizacja zamówienia" />
+            </div>
+        </div>
+
+    </form>
+</div>

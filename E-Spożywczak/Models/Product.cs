@@ -54,6 +54,6 @@ namespace E_Spożywczak.Models
         public ProductCategory ProductCategory { get; set; }
 
         [Display(Name = "Ocena")]
-        public virtual ICollection<Rating> Ratings { get; set; }
+        public virtual IList<Rating> Ratings { get; set; }
     }
 }
