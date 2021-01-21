@@ -80,6 +80,21 @@ body {
     clear: both;
 }
 
+/* PRODUCT DETAILS
+-------------------------------------------------- */
+
+#product_details_image {
+    display: inline-block;
+    vertical-align: top;
+    width: 30%;
+}
+
+#product_details_desc {
+    display: inline-block;
+    vertical-align: top;
+    width: 70%;
+}
+
 .margin-bottom-5 {
     margin-bottom: 5px;
 }

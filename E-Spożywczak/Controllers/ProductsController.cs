@@ -81,5 +81,26 @@ namespace E_Spożywczak.Controllers
             else
                 return products.OrderBy(x => x.Name).ToList();
         }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var product = await _context.Product
+                .Include(a => a.ProductCategory)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            if (product.Availability < 3)
+                ViewData["Details availability"] = "Low";
+            else
+                ViewData["Details availability color"] = "High";
+            return View(product);
+        }
     }
 }
