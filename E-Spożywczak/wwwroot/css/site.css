@@ -80,6 +80,10 @@ body {
     clear: both;
 }
 
+.margin-bottom-5 {
+    margin-bottom: 5px;
+}
+
 /* PRODUCT DETAILS
 -------------------------------------------------- */
 
@@ -93,10 +97,6 @@ body {
     display: inline-block;
     vertical-align: top;
     width: 70%;
-}
-
-.margin-bottom-5 {
-    margin-bottom: 5px;
 }
 
 /* PRODUCTS
