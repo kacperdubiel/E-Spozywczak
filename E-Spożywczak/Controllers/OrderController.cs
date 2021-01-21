@@ -23,7 +23,12 @@ namespace E_Spożywczak.Controllers
             Cart cart = _context.Cart.Include("ProductsInCart.Product").FirstOrDefault(x => x.Id == _context.GetCurrentCartId());
 
             if (cart.ProductsInCart.Count == 0 || productamount.Count != cart.ProductsInCart.Count)
+            {
+                TempData["msg_text"] = "Dodaj najpierw produkty do koszyka!";
+                TempData["success_msg"] = false;
+                TempData["msg_time"] = 2000;
                 return RedirectToAction("Index", "Cart");
+            }
 
             cart.TotalPrice = 0M;
             for (int i = 0; i < cart.ProductsInCart.Count; i++)
@@ -34,6 +39,7 @@ namespace E_Spożywczak.Controllers
             }
 
             ViewBag.Delivery = _context.Delivery.ToList();
+            ViewBag.Payment = (TypeOfPayment[])Enum.GetValues(typeof(TypeOfPayment));
 
             _context.SaveChanges();
             return View(cart);

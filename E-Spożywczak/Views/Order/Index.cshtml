@@ -70,50 +70,90 @@
 
         <div id="order_delivery">
             <div class="margin-bottom-5">
-                <b>Dostawa:</b>
+                <b>Adres dostawy:</b>
             </div>
             <div id="inner">
-                <input type="text" id="delivery_address_box" name="address" placeholder="Ulica i numer mieszkania" />
+                <input type="text" id="delivery_address_box" name="address" placeholder="Ulica i numer mieszkania" required />
 
-                <input type="text" id="delivery_post_code_box" name="postcode" placeholder="Kod pocztowy" />
-                <input type="text" id="delivery_city_box" name="city" placeholder="Miejscowość" />
+                <input type="text" id="delivery_post_code_box" name="postcode" placeholder="Kod pocztowy" required/>
+                <input type="text" id="delivery_city_box" name="city" placeholder="Miejscowość" required/>
 
-                <input type="text" id="delivery_country_box" name="country" placeholder="Kraj" />
+                <input type="text" id="delivery_country_box" name="country" placeholder="Kraj" required/>
+            </div>
+            <div class="margin-bottom-5">
+                <b>Typ dostawy:</b>
             </div>
             <div>
-
                 @foreach (var delivery in ViewBag.Delivery)
                 {
                     <div>
-                        <input type="radio" id="delivery_@delivery.Id" name="delivery_type" value="@delivery.Id">
+                        <input type="radio" id="delivery_@delivery.Id" name="delivery_type" 
+                               value="@delivery.Id" @(delivery.Id == 1 ? "checked" : "")
+                               onclick="deliveryChanged(this)">
 
                         <label for="delivery_@delivery.Id">@delivery.DeliveryTypeName (@delivery.Price zł)</label>
                     </div>
-                           
-
                 }
 
             </div>
-            
-
         </div>
 
+        <div id="order_payment">
+            <div id="inner">
+                <div class="margin-bottom-5">
+                    <b>Płatność:</b>
+                </div>
+                @foreach (TypeOfPayment payment in ViewBag.Payment)
+                {
+                    <div>
+                        <input type="radio" id="payment_@((int)payment)" name="payment_type"
+                               value="@((int)payment)" @((int)payment == 0 ? "checked" : "")>
 
+                        <label for="payment_@((int)payment)">@Html.DisplayFor(x => payment)</label>
+                    </div>
+                }
 
+                <div>
+                    <b>Produkty: @Html.DisplayFor(model => model.TotalPrice) zł</b>
+                </div>
+                <div>
+                    <b>Dostawa: <span id="delivery_price">@ViewBag.Delivery[0].Price</span> zł</b>
+                </div>
+                <hr />
+                <div class="margin-bottom-5">
+                    <b>Łącznie do zapłaty: <span id="total_price">@(((decimal)(ViewBag.Delivery[0].Price) + @Model.TotalPrice).ToString("0.##"))</span> zł</b>
+                </div>
 
-
-
-
-
-
-        <div id="cart_info">
-            
-            <br />
-            <hr />
-            <div>
-                <input type="submit" asp-controller="" asp-action="" class="btn btn-success" value="Realizacja zamówienia" />
+                <div>
+                    <input type="submit" asp-controller="" asp-action="" class="btn btn-success" value="Realizacja zamówienia" />
+                </div>
             </div>
         </div>
 
     </form>
 </div>
+
+<script>
+    var deliveryPrices = [@ViewBag.Delivery[0].Price, @ViewBag.Delivery[1].Price, @ViewBag.Delivery[2].Price];
+    var productsPrice = @Model.TotalPrice;
+
+    var totalPrice = @Model.TotalPrice + deliveryPrices[(0)];
+    updateDeliveryPrice(deliveryPrices[0]);
+    updateTotalPrice(totalPrice);
+
+    function deliveryChanged(radioButton) {
+        var deliveryPrice = deliveryPrices[(radioButton.value - 1)];
+        var totalPrice = @Model.TotalPrice + deliveryPrice;
+        updateDeliveryPrice(deliveryPrice);
+        updateTotalPrice(totalPrice);
+    }
+
+    function updateDeliveryPrice(deliveryPrice) {
+        document.getElementById("delivery_price").innerHTML = deliveryPrice.toFixed(2);
+    }
+
+    function updateTotalPrice(totalPrice) {
+        document.getElementById("total_price").innerHTML = totalPrice.toFixed(2);
+    }
+
+</script>

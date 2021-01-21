@@ -57,6 +57,10 @@ namespace E_Spożywczak.Controllers
                 _context.Add(productInCart);
                 await _context.SaveChangesAsync();
             }
+
+            TempData["msg_text"] = "Dodano produkt do koszyka!";
+            TempData["success_msg"] = true;
+            TempData["msg_time"] = 2000;
             return RedirectToAction("Filter", "Products", new { categoryid, searchbox, sortby }); 
         }
 

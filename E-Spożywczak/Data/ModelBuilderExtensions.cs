@@ -476,20 +476,20 @@ namespace E_Spożywczak.Data
                 {
                     Id = 1,
                     DeliveryTypeName = "Pocztex48",
-                    Price = 8.50
+                    Price = 8.50M
          
                 },
                 new Delivery()
                 {
                     Id = 2,
                     DeliveryTypeName = "Kurier DPD",
-                    Price = 10.90
+                    Price = 10.90M
                 },
                 new Delivery()
                 {
                     Id = 3,
                     DeliveryTypeName = "Kurier DHL",
-                    Price = 12.90
+                    Price = 12.90M
 
                 }
                 ); ;

@@ -9,6 +9,13 @@
 }
 
 <div id="page">
+    @if (TempData["msg_text"] != null && TempData["success_msg"] != null)
+    {
+    <div id="info_box" class="@((bool)TempData["success_msg"] ? "bg-success" : "bg-danger") p-3 mb-2 text-white">
+        @TempData["msg_text"]
+    </div>
+    }
+
     <form asp-action="Filter" asp-route-categoryid="@ViewBag.SelectedProductCategory">
         <div id="products_top_menu">
             <input type="text" id="products_search_box" name="searchbox" placeholder="Szukaj..." value="@ViewBag.SearchBoxText">
@@ -18,7 +25,7 @@
     </form>
 
     <div id="products_left_menu">
-        <a id="products_category_btn" class="btn @category_btn_class" asp-action="Filter" asp-route-categoryid="-1" 
+        <a id="products_category_btn" class="btn @category_btn_class" asp-action="Filter" asp-route-categoryid="-1"
            asp-route-searchbox="@ViewBag.SearchBoxText" asp-route-sortby="@ViewBag.SelectedSortItem">
             Wszystkie
         </a>
@@ -27,7 +34,7 @@
             category_btn_class = "btn-primary";
             if (@ViewBag.SelectedProductCategory == c.Id)
                 category_btn_class = "btn-outline-primary";
-            <a id="products_category_btn" class="btn @category_btn_class " asp-action="Filter" asp-route-categoryid="@c.Id" 
+            <a id="products_category_btn" class="btn @category_btn_class " asp-action="Filter" asp-route-categoryid="@c.Id"
                asp-route-searchbox="@ViewBag.SearchBoxText" asp-route-sortby="@ViewBag.SelectedSortItem">
                 @c.Name
             </a>
@@ -79,8 +86,8 @@
                         <td>
                             <a asp-controller="Cart" asp-action="AddToCart" asp-route-productid="@product.Id"
                                asp-route-searchbox="@ViewBag.SearchBoxText" asp-route-sortby="@ViewBag.SelectedSortItem"
-                               asp-route-categoryid="@ViewBag.SelectedProductCategory" class="btn btn-danger">Dodaj do koszyka</a>
-                            <a asp-action="Details" asp-route-id=@product.Id class="btn btn-danger">Szczegóły</a>
+                               asp-route-categoryid="@ViewBag.SelectedProductCategory" class="btn btn-success">Dodaj do koszyka</a>
+                            <a asp-action="Details" asp-route-id=@product.Id class="btn btn-success">Szczegóły</a>
                         </td>
                     </tr>
                 }
@@ -90,5 +97,11 @@
 
     <div id="float_clear"></div>
 
-    
+
 </div>
+
+<script>
+    setTimeout(function () {
+        $('#info_box').fadeOut('slow');
+    }, @TempData["msg_time"]); 
+</script>

@@ -5,6 +5,12 @@
 }
 
 <div id="page">
+    @if (TempData["msg_text"] != null && TempData["success_msg"] != null)
+    {
+        <div id="info_box" class="@((bool)TempData["success_msg"] ? "bg-success" : "bg-danger") p-3 mb-2 text-white">
+            @TempData["msg_text"]
+        </div>
+    }
     <form method="post">
         <div id="cart_products">
             <table class="table table-hover">
@@ -67,21 +73,27 @@
                     }
                 </tbody>
             </table>
-        
+
         </div>
 
         <div id="cart_info">
             <div>
-                Łącznie @ViewBag.TotalCartPrice zł
+                Łącznie @ViewBag.TotalCartPrice.ToString("#.##") zł
 
             </div>
             <br />
             <hr />
             <div>
-                <input type="submit" asp-controller="Order" asp-action="Index" class="btn btn-success" value="Realizacja zamówienia"/>
+                <input type="submit" asp-controller="Order" asp-action="Index" class="btn btn-success" value="Realizacja zamówienia" />
             </div>
         </div>
 
         <div id="float_clear"></div>
     </form>
 </div>
+
+<script>
+    setTimeout(function () {
+        $('#info_box').fadeOut('slow');
+    }, @TempData["msg_time"]);
+</script>

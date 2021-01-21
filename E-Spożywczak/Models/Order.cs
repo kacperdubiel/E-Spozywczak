@@ -8,8 +8,10 @@ namespace E_Spożywczak.Models
 {
     public enum TypeOfPayment
     {
-        Electronic,
-        OnDelivery
+        [Display(Name = "Elektroniczna")]
+        Electronic = 0,
+        [Display(Name = "Za pobraniem")]
+        OnDelivery = 1
     }
 
     public class Order

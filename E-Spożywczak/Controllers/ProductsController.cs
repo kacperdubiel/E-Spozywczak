@@ -47,7 +47,6 @@ namespace E_Spożywczak.Controllers
                 products = products.Where(x => x.ProductCategoryId == categoryid).ToList();
 
             products = SortProducts(products, sortby);
-
             return View("Index", products);
         }
 
