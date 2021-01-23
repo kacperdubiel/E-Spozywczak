@@ -39,7 +39,7 @@ namespace E_Spożywczak.Controllers
         }
 
         // GET: Articles/Create
-        public async Task<IActionResult> AddToCart(int productid, int categoryid, string searchbox, string sortby)
+        public async Task<IActionResult> AddToCart(int productid, int categoryid, string searchbox, string sortby, bool fromhistory)
         {
             Models.Product product = await _context.Product.FindAsync(productid);
 
@@ -61,7 +61,10 @@ namespace E_Spożywczak.Controllers
             TempData["msg_text"] = "Dodano produkt do koszyka!";
             TempData["success_msg"] = true;
             TempData["msg_time"] = 2000;
-            return RedirectToAction("Filter", "Products", new { categoryid, searchbox, sortby }); 
+            if (!fromhistory)
+                return RedirectToAction("Filter", "Products", new { categoryid, searchbox, sortby });
+            else
+                return RedirectToAction("Index", "OrdersHistory");
         }
 
         // GET
