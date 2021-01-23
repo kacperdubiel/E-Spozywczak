@@ -242,5 +242,18 @@ body {
     margin: 10px auto;
 }
 
-/* ORDERS HISTORY
+/* RATING
 -------------------------------------------------- */
+.fa {
+    font-size: 35px;
+}
+
+.checked {
+    color: orange;
+    text-shadow: 0 0 3px #000
+}
+
+.unchecked {
+    color: white;
+    text-shadow: 0 0 3px #000
+}

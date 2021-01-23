@@ -2,14 +2,47 @@
 @{
     ViewData["Title"] = "Details";
     string img_path = Model.ImagePath == null ? "/image/no_image.jpg" : "/image/" + Model.ImagePath;
+
     string av_color = "black";
     if (Model.Availability <= 3)
         av_color = "red";
+
+    double avgRating = ViewBag.AvgProductRating;
+    int starsCounter = 0;
 }
 <div style="display:grid">
     <div>
         <h1>@Html.DisplayFor(model => model.Name)</h1>
+        <br />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        @for (int i = 0; i < (int)avgRating; i++)
+        {
+            <span class="fa fa-star checked"></span>
+            starsCounter++;
+        }
+        @if (avgRating - ((int)avgRating) >= 0.5)
+        {
+            <span class="fa fa-star-half-o checked"></span>
+            starsCounter++;
+        }
+        @for (int i = 0; i < 5 - starsCounter; i++)
+        {
+            <span class="fa fa-star unchecked"></span>
+        }
+        <br />
+
+        @if (avgRating > 0)
+        {
+            <h7>Ocena @String.Format("{0:0.00}", ViewBag.AvgProductRating) na podstawie @ViewBag.RatingsCount opinii.</h7>
+        }
+        else
+        {
+            <h7>Brak opinii.</h7>
+        }
+
         <hr />
+
         <div style="width:70%; float:left">
             <dl>
                 <dt>
@@ -50,5 +83,38 @@
            asp-route-searchbox="" asp-route-sortby="" asp-route-categoryid="-1" 
            class="btn @(Model.Availability <= 0 ? "btn-secondary disabled" : "btn-success")">Dodaj do koszyka</a>
         <a asp-action="Index" class="btn btn-success">Back to List</a>
+    </div>
+    <div>
+        <br />
+        <hr />
+        <h2>Oceny i komentarze użytkowników</h2>
+        <br />
+
+        @{int commentStarsCounter = 0;}
+        @foreach ((double, string, DateTime) comment in ViewBag.RatesAndComments)
+        {
+            <div style="border-style: groove; border-radius:10px; padding:10px">
+                <h6>@comment.Item3</h6>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                @for (int i = 0; i < (int)(comment.Item1); i++)
+                {
+                    <span class="fa fa-star checked"></span>
+                    commentStarsCounter++;
+                }
+                @if (comment.Item1 - (int)(comment.Item1) >= 0.5)
+                {
+                    <span class="fa fa-star-half-o checked"></span>
+                    commentStarsCounter++;
+                }
+                @for (int i = 0; i < 5 - commentStarsCounter; i++)
+                {
+                    <span class="fa fa-star unchecked"></span>
+                }
+                <br />
+                <h7>@comment.Item2</h7>
+            </div>
+            <br />
+            commentStarsCounter = 0;
+        }
     </div>
 </div>

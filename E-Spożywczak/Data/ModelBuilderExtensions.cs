@@ -424,33 +424,158 @@ namespace E_Spożywczak.Data
                 new Rating()
                 {
                     Id = 1,
-                    Rate = 4,
+                    Rate = 10,
                     RatingDate = new DateTime(2021, 1, 10, 11, 30, 52),
-                    Message = "Bardzo dobre!",
-                    ProductId = 1
+                    Message = "Super ananas!",
+                    ProductId = 12
                 },
                 new Rating()
                 {
                     Id = 2,
-                    Rate = 1,
+                    Rate = 6,
                     RatingDate = new DateTime(2021, 1, 13, 18, 11, 33),
-                    Message = "Baton przeterminowany.",
-                    ProductId = 1
+                    Message = "Dostałam niedojrzały",
+                    ProductId = 12
                 },
                 new Rating()
                 {
                     Id = 3,
-                    Rate = 5,
+                    Rate = 2,
                     RatingDate = new DateTime(2021, 1, 20, 7, 44, 47),
-                    Message = "Super szybka dostawa!",
-                    ProductId = 1
+                    Message = "Niedobry",
+                    ProductId = 12
                 },
                 new Rating()
                 {
                     Id = 4,
-                    Rate = 5,
+                    Rate = 10,
                     RatingDate = new DateTime(2021, 1, 21, 12, 38, 23),
-                    Message = "Pyszne",
+                    ProductId = 12
+                },
+                new Rating()
+                {
+                    Id = 5,
+                    Rate = 10,
+                    RatingDate = new DateTime(2021, 1, 10, 11, 30, 52),
+                    Message = "Chrupiąca!",
+                    ProductId = 18
+                },
+                new Rating()
+                {
+                    Id = 6,
+                    Rate = 10,
+                    RatingDate = new DateTime(2021, 1, 13, 18, 11, 33),
+                    Message = "Bardzo dobra",
+                    ProductId = 18
+                },
+                new Rating()
+                {
+                    Id = 7,
+                    Rate = 2,
+                    RatingDate = new DateTime(2021, 1, 20, 7, 44, 47),
+                    Message = "Polecam sklep",
+                    ProductId = 18
+                },
+                new Rating()
+                {
+                    Id = 8,
+                    Rate = 6,
+                    RatingDate = new DateTime(2021, 1, 21, 12, 38, 23),
+                    ProductId = 18
+                },
+                new Rating()
+                {
+                    Id = 9,
+                    Rate = 8,
+                    RatingDate = new DateTime(2021, 1, 21, 12, 38, 23),
+                    Message = "Pyszne, premium!",
+                    ProductId = 13
+                },
+                new Rating()
+                {
+                    Id = 10,
+                    Rate = 3,
+                    RatingDate = new DateTime(2021, 1, 21, 12, 38, 23),
+                    Message = "Przyszły zgniłe!",
+                    ProductId = 13
+                },
+                new Rating()
+                {
+                    Id = 11,
+                    Rate = 9,
+                    RatingDate = new DateTime(2021, 1, 20, 7, 44, 47),
+                    Message = "Bardzo polecam espozywczak!",
+                    ProductId = 13
+                },
+                new Rating()
+                {
+                    Id = 12,
+                    Rate = 10,
+                    RatingDate = new DateTime(2021, 1, 20, 7, 44, 47),
+                    Message = "Najlepszy sklep!",
+                    ProductId = 13
+                },
+                new Rating()
+                {
+                    Id = 13,
+                    Rate = 10,
+                    RatingDate = new DateTime(2021, 1, 20, 7, 44, 47),
+                    Message = "Kocham ten baton!",
+                    ProductId = 1
+                },
+                new Rating()
+                {
+                    Id = 14,
+                    Rate = 10,
+                    RatingDate = new DateTime(2021, 1, 21, 12, 38, 23),
+                    Message = "Uwielbiam.",
+                    ProductId = 1
+                },
+                new Rating()
+                {
+                    Id = 15,
+                    Rate = 10,
+                    RatingDate = new DateTime(2021, 1, 21, 12, 38, 23),
+                    Message = "Kupię ponownie.",
+                    ProductId = 1
+                },
+                new Rating()
+                {
+                    Id = 16,
+                    Rate = 10,
+                    RatingDate = new DateTime(2021, 1, 21, 12, 38, 23),
+                    ProductId = 1
+                },
+                new Rating()
+                {
+                    Id = 17,
+                    Rate = 10,
+                    RatingDate = new DateTime(2021, 1, 21, 12, 38, 23),
+                    Message = "Smakuje kosmicznie!",
+                    ProductId = 2
+                },
+                new Rating()
+                {
+                    Id = 18,
+                    Rate = 10,
+                    RatingDate = new DateTime(2021, 1, 21, 12, 38, 23),
+                    Message = "Mój ulubiony, zawsze kupuje w espożywczaku!",
+                    ProductId = 2
+                },
+                new Rating()
+                {
+                    Id = 19,
+                    Rate = 10,
+                    RatingDate = new DateTime(2021, 1, 21, 12, 38, 23),
+                    Message = "Smak mojego dzieciństwa, najlepszy!",
+                    ProductId = 2
+                },
+                new Rating()
+                {
+                    Id = 20,
+                    Rate = 8,
+                    RatingDate = new DateTime(2021, 1, 21, 12, 38, 23),
+                    Message = "Spodziewałem się czegoś lepszego, ale było ok!",
                     ProductId = 2
                 }
                 ); ;

@@ -755,33 +755,158 @@ namespace E_Spożywczak.Migrations
                         new
                         {
                             Id = 1,
-                            Message = "Bardzo dobre!",
-                            ProductId = 1,
-                            Rate = 4,
+                            Message = "Super ananas!",
+                            ProductId = 12,
+                            Rate = 10,
                             RatingDate = new DateTime(2021, 1, 10, 11, 30, 52, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
-                            Message = "Baton przeterminowany.",
-                            ProductId = 1,
-                            Rate = 1,
+                            Message = "Dostałam niedojrzały",
+                            ProductId = 12,
+                            Rate = 6,
                             RatingDate = new DateTime(2021, 1, 13, 18, 11, 33, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
-                            Message = "Super szybka dostawa!",
-                            ProductId = 1,
-                            Rate = 5,
+                            Message = "Niedobry",
+                            ProductId = 12,
+                            Rate = 2,
                             RatingDate = new DateTime(2021, 1, 20, 7, 44, 47, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 4,
-                            Message = "Pyszne",
+                            ProductId = 12,
+                            Rate = 10,
+                            RatingDate = new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Message = "Chrupiąca!",
+                            ProductId = 18,
+                            Rate = 10,
+                            RatingDate = new DateTime(2021, 1, 10, 11, 30, 52, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Message = "Bardzo dobra",
+                            ProductId = 18,
+                            Rate = 10,
+                            RatingDate = new DateTime(2021, 1, 13, 18, 11, 33, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Message = "Polecam sklep",
+                            ProductId = 18,
+                            Rate = 2,
+                            RatingDate = new DateTime(2021, 1, 20, 7, 44, 47, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ProductId = 18,
+                            Rate = 6,
+                            RatingDate = new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Message = "Pyszne, premium!",
+                            ProductId = 13,
+                            Rate = 8,
+                            RatingDate = new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Message = "Przyszły zgniłe!",
+                            ProductId = 13,
+                            Rate = 3,
+                            RatingDate = new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Message = "Bardzo polecam espozywczak!",
+                            ProductId = 13,
+                            Rate = 9,
+                            RatingDate = new DateTime(2021, 1, 20, 7, 44, 47, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Message = "Najlepszy sklep!",
+                            ProductId = 13,
+                            Rate = 10,
+                            RatingDate = new DateTime(2021, 1, 20, 7, 44, 47, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Message = "Kocham ten baton!",
+                            ProductId = 1,
+                            Rate = 10,
+                            RatingDate = new DateTime(2021, 1, 20, 7, 44, 47, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Message = "Uwielbiam.",
+                            ProductId = 1,
+                            Rate = 10,
+                            RatingDate = new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Message = "Kupię ponownie.",
+                            ProductId = 1,
+                            Rate = 10,
+                            RatingDate = new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 16,
+                            ProductId = 1,
+                            Rate = 10,
+                            RatingDate = new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Message = "Smakuje kosmicznie!",
                             ProductId = 2,
-                            Rate = 5,
+                            Rate = 10,
+                            RatingDate = new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Message = "Mój ulubiony, zawsze kupuje w espożywczaku!",
+                            ProductId = 2,
+                            Rate = 10,
+                            RatingDate = new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Message = "Smak mojego dzieciństwa, najlepszy!",
+                            ProductId = 2,
+                            Rate = 10,
+                            RatingDate = new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Message = "Spodziewałem się czegoś lepszego, ale było ok!",
+                            ProductId = 2,
+                            Rate = 8,
                             RatingDate = new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified)
                         });
                 });

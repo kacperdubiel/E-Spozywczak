@@ -265,11 +265,11 @@ namespace E_Spożywczak.Migrations
                 values: new object[,]
                 {
                     { 1, 1, 1.0, 1, 0m },
-                    { 4, 2, 1.0, 9, 0m },
-                    { 3, 2, 3.0, 17, 0m },
-                    { 6, 3, 3.0, 19, 0m },
                     { 5, 3, 1.0, 21, 0m },
+                    { 6, 3, 3.0, 19, 0m },
+                    { 3, 2, 3.0, 17, 0m },
                     { 7, 3, 2.0, 25, 0m },
+                    { 4, 2, 1.0, 9, 0m },
                     { 2, 1, 2.0, 29, 0m }
                 });
 
@@ -278,10 +278,26 @@ namespace E_Spożywczak.Migrations
                 columns: new[] { "Id", "Message", "ProductId", "Rate", "RatingDate" },
                 values: new object[,]
                 {
-                    { 1, "Bardzo dobre!", 1, 4, new DateTime(2021, 1, 10, 11, 30, 52, 0, DateTimeKind.Unspecified) },
-                    { 2, "Baton przeterminowany.", 1, 1, new DateTime(2021, 1, 13, 18, 11, 33, 0, DateTimeKind.Unspecified) },
-                    { 3, "Super szybka dostawa!", 1, 5, new DateTime(2021, 1, 20, 7, 44, 47, 0, DateTimeKind.Unspecified) },
-                    { 4, "Pyszne", 2, 5, new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified) }
+                    { 19, "Smak mojego dzieciństwa, najlepszy!", 2, 10, new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified) },
+                    { 13, "Kocham ten baton!", 1, 10, new DateTime(2021, 1, 20, 7, 44, 47, 0, DateTimeKind.Unspecified) },
+                    { 14, "Uwielbiam.", 1, 10, new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified) },
+                    { 8, null, 18, 6, new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified) },
+                    { 7, "Polecam sklep", 18, 2, new DateTime(2021, 1, 20, 7, 44, 47, 0, DateTimeKind.Unspecified) },
+                    { 6, "Bardzo dobra", 18, 10, new DateTime(2021, 1, 13, 18, 11, 33, 0, DateTimeKind.Unspecified) },
+                    { 5, "Chrupiąca!", 18, 10, new DateTime(2021, 1, 10, 11, 30, 52, 0, DateTimeKind.Unspecified) },
+                    { 15, "Kupię ponownie.", 1, 10, new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified) },
+                    { 12, "Najlepszy sklep!", 13, 10, new DateTime(2021, 1, 20, 7, 44, 47, 0, DateTimeKind.Unspecified) },
+                    { 11, "Bardzo polecam espozywczak!", 13, 9, new DateTime(2021, 1, 20, 7, 44, 47, 0, DateTimeKind.Unspecified) },
+                    { 10, "Przyszły zgniłe!", 13, 3, new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified) },
+                    { 9, "Pyszne, premium!", 13, 8, new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified) },
+                    { 16, null, 1, 10, new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified) },
+                    { 3, "Niedobry", 12, 2, new DateTime(2021, 1, 20, 7, 44, 47, 0, DateTimeKind.Unspecified) },
+                    { 2, "Dostałam niedojrzały", 12, 6, new DateTime(2021, 1, 13, 18, 11, 33, 0, DateTimeKind.Unspecified) },
+                    { 1, "Super ananas!", 12, 10, new DateTime(2021, 1, 10, 11, 30, 52, 0, DateTimeKind.Unspecified) },
+                    { 17, "Smakuje kosmicznie!", 2, 10, new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified) },
+                    { 20, "Spodziewałem się czegoś lepszego, ale było ok!", 2, 8, new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified) },
+                    { 18, "Mój ulubiony, zawsze kupuje w espożywczaku!", 2, 10, new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified) },
+                    { 4, null, 12, 10, new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.CreateIndex(

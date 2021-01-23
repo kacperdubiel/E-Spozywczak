@@ -81,6 +81,21 @@ namespace E_Spożywczak.Controllers
                 return products.OrderBy(x => x.Name).ToList();
         }
 
+        private async void CountRatingAverage(int? id)
+        {
+
+            var ratings = await _context.Rating
+                                .Select(r => r).Where(r => id == r.ProductId).ToListAsync();
+            int sum = 0;
+            foreach(Models.Rating rate in ratings)
+            {
+                sum += rate.Rate/2;
+            }
+            double avgRating = sum / ratings.Count;
+            ViewBag.AvgProductRating = avgRating;
+            ViewBag.RatingsCount = ratings.Count;
+        }
+
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -95,10 +110,38 @@ namespace E_Spożywczak.Controllers
             {
                 return NotFound();
             }
+
+            /////OCENY I KOMENTARZE
+
+            var ratings = await _context.Rating
+                                .Select(r => r).Where(r => id == r.ProductId).ToListAsync();
+            int sum = 0;
+            List<(double, string, DateTime)> rateAndComments = new List<(double, string, DateTime)>();
+            foreach (Models.Rating rate in ratings)
+            {
+                sum += (rate.Rate / 2);
+                rateAndComments.Add((rate.Rate/2, rate.Message, rate.RatingDate));
+            }
+
+            double avgRating = (double)sum / (double)ratings.Count;
+
+            if(ratings.Count > 0)
+                ViewBag.AvgProductRating = avgRating;
+            else
+            {
+                ViewBag.AvgProductRating = 0;
+            }
+            ViewBag.RatingsCount = ratings.Count;
+            ViewBag.RatesAndComments = rateAndComments;
+
+            ////////////////////////////////////////
+            
+
+
             if (product.Availability < 3)
                 ViewData["Details availability"] = "Low";
             else
-                ViewData["Details availability color"] = "High";
+                ViewData["Details availability "] = "High";
             return View(product);
         }
     }
