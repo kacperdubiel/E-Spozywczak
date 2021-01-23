@@ -26,7 +26,7 @@ namespace E_Spożywczak.Controllers
             if (cart != null)
                 productsInCart = cart.ProductsInCart.ToList();
 
-            // To to w ogole najlepiej wywalić bo jak ktoś zmieni ilość rzeczy w koszyku to rip. może jakoś JSem wyliczyć idk
+            // TODO: To to w ogole najlepiej wywalić bo jak ktoś zmieni ilość rzeczy w koszyku to rip. może jakoś JSem wyliczyć idk
             decimal totalCartPrice = 0M;
             foreach (Models.ProductInCart productInCart in productsInCart)
             {

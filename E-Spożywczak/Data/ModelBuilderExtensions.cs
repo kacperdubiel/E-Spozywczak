@@ -425,7 +425,7 @@ namespace E_Spożywczak.Data
                 {
                     Id = 1,
                     Rate = 4,
-                    RatingDate = DateTime.Today,
+                    RatingDate = new DateTime(2021, 1, 10, 11, 30, 52),
                     Message = "Bardzo dobre!",
                     ProductId = 1
                 },
@@ -433,7 +433,7 @@ namespace E_Spożywczak.Data
                 {
                     Id = 2,
                     Rate = 1,
-                    RatingDate = DateTime.Today,
+                    RatingDate = new DateTime(2021, 1, 13, 18, 11, 33),
                     Message = "Baton przeterminowany.",
                     ProductId = 1
                 },
@@ -441,7 +441,7 @@ namespace E_Spożywczak.Data
                 {
                     Id = 3,
                     Rate = 5,
-                    RatingDate = DateTime.Today,
+                    RatingDate = new DateTime(2021, 1, 20, 7, 44, 47),
                     Message = "Super szybka dostawa!",
                     ProductId = 1
                 },
@@ -449,7 +449,7 @@ namespace E_Spożywczak.Data
                 {
                     Id = 4,
                     Rate = 5,
-                    RatingDate = DateTime.Today,
+                    RatingDate = new DateTime(2021, 1, 21, 12, 38, 23),
                     Message = "Pyszne",
                     ProductId = 2
                 }
@@ -468,6 +468,10 @@ namespace E_Spożywczak.Data
                 new Cart()
                 {
                     Id = 3,
+                },
+                new Cart()
+                {
+                    Id = 4,
                 }
                 ); ;
 
@@ -558,11 +562,11 @@ namespace E_Spożywczak.Data
                 new Order()
                 {
                     Id = 1,
-                    DeliveryAddress = "Krynicka 14 50-555 Wrocław",
-                    OrderDate = DateTime.Today,
+                    DeliveryAddress = "Krynicka 14, 50-555 Wrocław, Polska",
+                    OrderDate = new DateTime(2021, 1, 15, 12, 38, 23),
                     TypeOfPayment = TypeOfPayment.OnDelivery,
                     IsOrderPaid = true,
-                    OrderPaymentDate = DateTime.Today,
+                    OrderPaymentDate = new DateTime(2021, 1, 15, 12, 38, 23),
                     DeliveryId = 1,
                     CartId = 1,
                     OrdersHistoryId = 1
@@ -570,8 +574,8 @@ namespace E_Spożywczak.Data
                 new Order()
                 {
                     Id = 2,
-                    DeliveryAddress = "Krynicka 14 50-555 Wrocław",
-                    OrderDate = DateTime.Today,
+                    DeliveryAddress = "Krynicka 14, 50-555 Wrocław, Polska",
+                    OrderDate = new DateTime(2021, 1, 19, 16, 23, 43),
                     TypeOfPayment = TypeOfPayment.Electronic,
                     IsOrderPaid = false,
                     DeliveryId = 2,
@@ -581,8 +585,8 @@ namespace E_Spożywczak.Data
                 new Order()
                 {
                     Id = 3,
-                    DeliveryAddress = "Krynicka 14 50-555 Wrocław",
-                    OrderDate = DateTime.Today,
+                    DeliveryAddress = "Krynicka 14, 50-555 Wrocław, Polska",
+                    OrderDate = new DateTime(2021, 1, 21, 14, 29, 57),
                     TypeOfPayment = TypeOfPayment.Electronic,
                     IsOrderPaid = false,
                     DeliveryId = 3,

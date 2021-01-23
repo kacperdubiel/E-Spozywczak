@@ -48,7 +48,7 @@
         <hr />
         <a asp-controller="Cart" asp-action="AddToCart" asp-route-productid="@Model.Id" 
            asp-route-searchbox="" asp-route-sortby="" asp-route-categoryid="-1" 
-           class="btn btn-success">Dodaj do koszyka</a>
+           class="btn @(Model.Availability <= 0 ? "btn-secondary disabled" : "btn-success")">Dodaj do koszyka</a>
         <a asp-action="Index" class="btn btn-success">Back to List</a>
     </div>
 </div>

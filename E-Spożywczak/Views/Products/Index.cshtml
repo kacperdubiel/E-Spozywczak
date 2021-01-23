@@ -81,12 +81,19 @@
                             <img src="@Url.Content(img_path)" style="max-height: 75px; max-width: 75px; height: auto; width: auto;" />
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => product.Availability) @Html.DisplayFor(modelItem => product.MeasureType)
+                            @{ 
+                                string av_color = "black";
+                                if (product.Availability <= 3)
+                                    av_color = "red";
+                            }
+                            <span style="color:@av_color">
+                                @Html.DisplayFor(modelItem => product.Availability) @Html.DisplayFor(modelItem => product.MeasureType)
+                            </span>
                         </td>
                         <td>
                             <a asp-controller="Cart" asp-action="AddToCart" asp-route-productid="@product.Id"
                                asp-route-searchbox="@ViewBag.SearchBoxText" asp-route-sortby="@ViewBag.SelectedSortItem"
-                               asp-route-categoryid="@ViewBag.SelectedProductCategory" class="btn btn-success">Dodaj do koszyka</a>
+                               asp-route-categoryid="@ViewBag.SelectedProductCategory" class="btn @(product.Availability <= 0 ? "btn-secondary disabled" : "btn-success")">Dodaj do koszyka</a>
                             <a asp-action="Details" asp-route-id=@product.Id class="btn btn-success">Szczegóły</a>
                         </td>
                     </tr>

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace E_Spożywczak.Migrations
 {
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -180,7 +180,8 @@ namespace E_Spożywczak.Migrations
                 {
                     { 1, 0m },
                     { 2, 0m },
-                    { 3, 0m }
+                    { 3, 0m },
+                    { 4, 0m }
                 });
 
             migrationBuilder.InsertData(
@@ -216,9 +217,9 @@ namespace E_Spożywczak.Migrations
                 columns: new[] { "Id", "CartId", "DeliveryAddress", "DeliveryId", "IsOrderPaid", "OrderDate", "OrderPaymentDate", "OrdersHistoryId", "TypeOfPayment" },
                 values: new object[,]
                 {
-                    { 1, 1, "Krynicka 14 50-555 Wrocław", 1, true, new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local), 1, 1 },
-                    { 2, 2, "Krynicka 14 50-555 Wrocław", 2, false, new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 0 },
-                    { 3, 3, "Krynicka 14 50-555 Wrocław", 3, false, new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 0 }
+                    { 1, 1, "Krynicka 14, 50-555 Wrocław, Polska", 1, true, new DateTime(2021, 1, 15, 12, 38, 23, 0, DateTimeKind.Unspecified), new DateTime(2021, 1, 15, 12, 38, 23, 0, DateTimeKind.Unspecified), 1, 1 },
+                    { 2, 2, "Krynicka 14, 50-555 Wrocław, Polska", 2, false, new DateTime(2021, 1, 19, 16, 23, 43, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 0 },
+                    { 3, 3, "Krynicka 14, 50-555 Wrocław, Polska", 3, false, new DateTime(2021, 1, 21, 14, 29, 57, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -277,10 +278,10 @@ namespace E_Spożywczak.Migrations
                 columns: new[] { "Id", "Message", "ProductId", "Rate", "RatingDate" },
                 values: new object[,]
                 {
-                    { 1, "Bardzo dobre!", 1, 4, new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local) },
-                    { 2, "Baton przeterminowany.", 1, 1, new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local) },
-                    { 3, "Super szybka dostawa!", 1, 5, new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local) },
-                    { 4, "Pyszne", 2, 5, new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Local) }
+                    { 1, "Bardzo dobre!", 1, 4, new DateTime(2021, 1, 10, 11, 30, 52, 0, DateTimeKind.Unspecified) },
+                    { 2, "Baton przeterminowany.", 1, 1, new DateTime(2021, 1, 13, 18, 11, 33, 0, DateTimeKind.Unspecified) },
+                    { 3, "Super szybka dostawa!", 1, 5, new DateTime(2021, 1, 20, 7, 44, 47, 0, DateTimeKind.Unspecified) },
+                    { 4, "Pyszne", 2, 5, new DateTime(2021, 1, 21, 12, 38, 23, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.CreateIndex(
