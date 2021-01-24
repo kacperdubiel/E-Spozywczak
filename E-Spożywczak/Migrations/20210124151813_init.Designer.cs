@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Spożywczak.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20210124141037_init")]
+    [Migration("20210124151813_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,56 @@ namespace E_Spożywczak.Migrations
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.2");
+
+            modelBuilder.Entity("E_Spożywczak.Models.Address", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("AddressLine")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PostCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Address");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AddressLine = "Grunwaldzka 31",
+                            City = "Wrocław",
+                            Country = "Polska",
+                            PostCode = "50-505"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AddressLine = "Iławska 15a",
+                            City = "Wrocław",
+                            Country = "Polska",
+                            PostCode = "50-534"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AddressLine = "Dworcowa 8",
+                            City = "Poznań",
+                            Country = "Polska",
+                            PostCode = "47-123"
+                        });
+                });
 
             modelBuilder.Entity("E_Spożywczak.Models.Cart", b =>
                 {

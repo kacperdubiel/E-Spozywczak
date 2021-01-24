@@ -9,6 +9,7 @@ namespace E_Spożywczak.Data
 {
     public class DatabaseContext : DbContext
     {
+        public DbSet<Address> Address { get; set; }
         public DbSet<Cart> Cart { get; set; }
         public DbSet<Delivery> Delivery { get; set; }
         public DbSet<Order> Order { get; set; }
