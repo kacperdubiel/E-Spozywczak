@@ -105,12 +105,12 @@ namespace E_Spożywczak.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> UpdateQuantity(int id, int quantity)
+        public ActionResult UpdateQuantity(int id, int quantity)
         {
-            var productInCart = await _context.ProductInCart.Include("Product").FirstOrDefaultAsync(x => x.Id == id);
+            var productInCart = _context.ProductInCart.Include("Product").FirstOrDefault(x => x.Id == id);
             productInCart.ProductAmount = quantity;
             productInCart.TotalPrice = productInCart.Product.Price * quantity;
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
             return RedirectToAction("Index");
         }
     }
