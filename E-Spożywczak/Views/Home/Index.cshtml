@@ -3,6 +3,10 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Witaj!</h1>
-    <p>Kup coś u nas!</p>
+    <h1 class="display-3">Witaj w E-spożywczaku użytkowniku!</h1>
+    @{
+        string img_path = "/image/ananas_logo.png";
+    }
+    <img src="@Url.Content(img_path)" style="max-height: 500px; max-width: 200px; height: auto; width: auto;" />
+    <h1 class="display-4">Zapraszamy do zakupów.</h1>
 </div>

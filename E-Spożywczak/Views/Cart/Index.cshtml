@@ -60,7 +60,7 @@
                                     string idBox = "cart_product_amount_box_" + idArt;
 
                                     <input type="number" min="@min_val" max="@productInCart.Product.Availability" step="@min_val" id="@idBox" name="productamount"
-                                           value="@productInCart.ProductAmount" required="required" onchange="updateQuantity(@idArt)">
+                                           value="@productInCart.ProductAmount" required="required" style="width:50px" onchange="updateQuantity(@idArt)">
                                     @Html.DisplayFor(modelItem => productInCart.Product.MeasureType)
                                  }
                             </td>
@@ -76,7 +76,7 @@
 
         <div id="cart_info">
             <div>
-                Łącznie @String.Format("{0:0.00}", ViewBag.TotalCartPrice) zł.
+                <h5>Łącznie @String.Format("{0:0.00}", ViewBag.TotalCartPrice) zł.</h5>
             </div>
             <br />
             <hr />
@@ -88,7 +88,6 @@
         <div id="float_clear"></div>
     </form>
 </div>
-
 
 
 @section Scripts {
