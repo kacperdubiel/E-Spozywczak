@@ -1,5 +1,6 @@
 ﻿using E_Spożywczak.Data;
 using E_Spożywczak.Models;
+using E_Spożywczak.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -20,16 +21,16 @@ namespace E_Spożywczak.Controllers
             _context = context;
         }
 
-        public IActionResult Index(int? id)
+        public async Task<IActionResult> Index(int? id)
         {
             if(id == null)
             {
                 return NotFound();
             }
 
-            var product = _context.Product
+            var product = await _context.Product
                 .Include(a => a.ProductCategory)
-                .FirstOrDefault(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if(product == null)
             {
@@ -39,16 +40,16 @@ namespace E_Spożywczak.Controllers
             return View(product);
         }
 
-        public IActionResult Rate(int? id, int rating, string message)
+        public async Task<IActionResult> Rate(int? id, int rating, string message)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var product =_context.Product
+            var product = await _context.Product
                 .Include(a => a.ProductCategory)
-                .FirstOrDefault(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (product == null)
             {
@@ -67,7 +68,7 @@ namespace E_Spożywczak.Controllers
             _context.Add(newRating);
             _context.SaveChanges();
 
-            return View("Index", product);
+            return RedirectToAction("Details", "Products", id);
         }
     }
 }
