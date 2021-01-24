@@ -11,6 +11,33 @@ namespace E_Spożywczak.Data
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Address>().HasData(
+                new Address()
+                {
+                    Id = 1,
+                    AddressLine = "Grunwaldzka 31",
+                    PostCode = "50-505",
+                    City = "Wrocław",
+                    Country = "Polska"
+                },
+                new Address()
+                {
+                    Id = 2,
+                    AddressLine = "Iławska 15a",
+                    PostCode = "50-534",
+                    City = "Wrocław",
+                    Country = "Polska"
+                },
+                new Address()
+                {
+                    Id = 3,
+                    AddressLine = "Dworcowa 8",
+                    PostCode = "47-123",
+                    City = "Poznań",
+                    Country = "Polska"
+                }
+                ); ;
+
             modelBuilder.Entity<ProductCategory>().HasData(
                 new ProductCategory()
                 {
