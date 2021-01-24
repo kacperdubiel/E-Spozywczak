@@ -40,6 +40,8 @@ namespace E_Spożywczak.Controllers
             return View(product);
         }
 
+        //POST
+        [HttpPost, ActionName("Rate")]
         public async Task<IActionResult> Rate(int? id, int rating, string message)
         {
             if (id == null)
@@ -68,7 +70,8 @@ namespace E_Spożywczak.Controllers
             _context.Add(newRating);
             _context.SaveChanges();
 
-            return RedirectToAction("Details", "Products", id);
+            //return RedirectToAction("Details", "Products", id);
+            return View("Index");
         }
     }
 }
