@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<E_Spożywczak.Models.Order>
 
-
+@{
+    ViewData["Title"] = "Historia zamówień";
+}
 
 @if (TempData["msg_text"] != null && TempData["success_msg"] != null)
 {
