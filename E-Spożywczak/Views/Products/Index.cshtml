@@ -94,7 +94,7 @@
                             <a asp-controller="Cart" asp-action="AddToCart" asp-route-productid="@product.Id", asp-route-fromhistory="false"
                                asp-route-searchbox="@ViewBag.SearchBoxText" asp-route-sortby="@ViewBag.SelectedSortItem"
                                asp-route-categoryid="@ViewBag.SelectedProductCategory" class="margin-bottom-5 btn @(product.Availability <= 0 ? "btn-secondary disabled" : "btn-success")">Dodaj do koszyka</a>
-                            <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-success">Szczegóły</a>
+                            <a asp-action="Details" asp-route-id="@product.Id" class="margin-bottom-5 btn btn-success">Szczegóły</a>
                         </td>
                     </tr>
                 }
