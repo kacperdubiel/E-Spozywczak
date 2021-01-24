@@ -45,15 +45,16 @@ namespace E_Spożywczak.Controllers
 
             if (product != null)
             {
+                int currentCartId = _context.GetCurrentCartId();
                 Models.ProductInCart productInCart = new Models.ProductInCart()
                 {
                     ProductAmount = 1,
                     TotalPrice = product.Price,
                     ProductId = productid,
-                    CartId = _context.GetCurrentCartId()
+                    CartId = currentCartId
                 };
 
-                var productInCartEx = await _context.ProductInCart.Select(p => p).FirstOrDefaultAsync(p => p.ProductId == productid);
+                var productInCartEx = await _context.ProductInCart.Select(p => p).FirstOrDefaultAsync(p => p.ProductId == productid && p.CartId == currentCartId);
                 if (productInCartEx != null)
                 {
                     productInCartEx.ProductAmount++;
@@ -64,11 +65,18 @@ namespace E_Spożywczak.Controllers
                     _context.Add(productInCart);
                 }
                 await _context.SaveChangesAsync();
+
+                TempData["msg_text"] = "Dodano produkt do koszyka!";
+                TempData["success_msg"] = true;
+                TempData["msg_time"] = 2000;
+            }
+            else
+            {
+                TempData["msg_text"] = "Produkt nie istnieje!";
+                TempData["success_msg"] = false;
+                TempData["msg_time"] = 2000;
             }
 
-            TempData["msg_text"] = "Dodano produkt do koszyka!";
-            TempData["success_msg"] = true;
-            TempData["msg_time"] = 2000;
             if (!fromhistory)
                 return RedirectToAction("Filter", "Products", new { categoryid, searchbox, sortby });
             else
