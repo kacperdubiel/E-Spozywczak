@@ -41,7 +41,7 @@ namespace E_Spożywczak.Controllers
             List<Models.Product> products = await _context.Product.ToListAsync();
 
             if (searchbox != null && searchbox.Length > 0)
-                products = products.Where(x => x.Name.Contains(searchbox)).ToList();
+                products = products.Where(x => x.Name.ToLower().Contains(searchbox.ToLower())).ToList();
 
             if (categoryid >= 0 && categoryid <= _context.ProductCategory.Count())
                 products = products.Where(x => x.ProductCategoryId == categoryid).ToList();
