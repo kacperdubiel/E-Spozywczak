@@ -79,6 +79,8 @@
                 <b>Adres dostawy:</b>
             </div>
             <div id="inner">
+                <select id="products_sort_select" class="form-select margin-bottom-5" onchange="addressChange(this)" name="sortby" asp-items="@ViewBag.AddressSelectList"> </select>
+
                 <input type="text" id="delivery_address_box" name="address" placeholder="Ulica i numer mieszkania" required />
 
                 <input type="text" id="delivery_post_code_box" name="address" placeholder="Kod pocztowy" required />
@@ -118,19 +120,19 @@
                         <label for="payment_@((int)payment)">@Html.DisplayFor(x => payment)</label>
                     </div>
                 }
-
+                <hr style="margin-top: 5px; margin-bottom: 5px;" />
                 <div>
                     <b>Produkty: @Html.DisplayFor(model => model.TotalPrice) zł</b>
                 </div>
                 <div>
                     <b>Dostawa: <span id="delivery_price">@ViewBag.Delivery[0].Price</span> zł</b>
                 </div>
-                <hr />
+                <hr style="margin-top: 5px; margin-bottom: 5px;" />
                 <div class="margin-bottom-5">
                     <b>Łącznie do zapłaty: <span id="total_price">@(((decimal)(ViewBag.Delivery[0].Price) + @Model.TotalPrice).ToString("0.##"))</span> zł</b>
                 </div>
-
-                <div>
+                <hr style="margin-top: 5px; margin-bottom: 5px;" />
+                <div id="submit_order">
                     <input type="submit" asp-action="Order" asp-route-cartid="@Model.Id" class="btn btn-success" value="Realizacja zamówienia" />
                 </div>
             </div>
@@ -140,6 +142,39 @@
 </div>
 
 <script>
+    var addresses = JSON.parse('@Html.Raw(Json.Serialize(@ViewBag.Addresses))');
+    document.getElementById("products_sort_select").value = addresses.length;
+
+    function addressChange(selectInput) {
+        var inputValue = selectInput.value;
+        if (inputValue < addresses.length) {
+            document.getElementById("delivery_address_box").value = addresses[inputValue]['addressLine'];
+            document.getElementById("delivery_address_box").readOnly = true;
+
+            document.getElementById("delivery_post_code_box").value = addresses[inputValue]['postCode'];
+            document.getElementById("delivery_post_code_box").readOnly = true;
+
+            document.getElementById("delivery_city_box").value = addresses[inputValue]['city'];
+            document.getElementById("delivery_city_box").readOnly = true;
+
+            document.getElementById("delivery_country_box").value = addresses[inputValue]['country'];
+            document.getElementById("delivery_country_box").readOnly = true;
+        }
+        else {
+            document.getElementById("delivery_address_box").value = "";
+            document.getElementById("delivery_address_box").readOnly = false;
+
+            document.getElementById("delivery_post_code_box").value = "";
+            document.getElementById("delivery_post_code_box").readOnly = false;
+
+            document.getElementById("delivery_city_box").value = "";
+            document.getElementById("delivery_city_box").readOnly = false;
+
+            document.getElementById("delivery_country_box").value = "";
+            document.getElementById("delivery_country_box").readOnly = false;
+        }
+    }
+
     var deliveryPrices = [@ViewBag.Delivery[0].Price, @ViewBag.Delivery[1].Price, @ViewBag.Delivery[2].Price];
     var productsPrice = @Model.TotalPrice;
 

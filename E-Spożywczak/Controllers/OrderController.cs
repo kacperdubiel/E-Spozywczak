@@ -1,6 +1,7 @@
 ﻿using E_Spożywczak.Data;
 using E_Spożywczak.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,20 @@ namespace E_Spożywczak.Controllers
 
         public IActionResult Index(IList<double> productamount)
         {
+            List<SelectListItem> addressSelectList = new List<SelectListItem>();
+            List<Address> addresses = _context.Address.ToList();
+
+            int index = 0;
+            foreach (Address address in addresses)
+            {
+                string addressText = address.AddressLine + ", " + address.PostCode + " " + address.City + ", " + address.Country;
+                addressSelectList.Add(new SelectListItem { Text = addressText, Value = $"{index}" });
+                index++;
+            }
+            addressSelectList.Add(new SelectListItem { Text = "Inny", Value = $"{index}" });
+            ViewBag.AddressSelectList = addressSelectList;
+            ViewBag.Addresses = addresses;
+
             Cart cart = _context.Cart.Include("ProductsInCart.Product").FirstOrDefault(x => x.Id == _context.GetCurrentCartId());
 
             if (cart.ProductsInCart.Count == 0 || productamount.Count != cart.ProductsInCart.Count)

@@ -8,6 +8,22 @@ namespace E_Spożywczak.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Address",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AddressLine = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PostCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Address", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Cart",
                 columns: table => new
                 {
@@ -174,6 +190,16 @@ namespace E_Spożywczak.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Address",
+                columns: new[] { "Id", "AddressLine", "City", "Country", "PostCode" },
+                values: new object[,]
+                {
+                    { 1, "Grunwaldzka 31", "Wrocław", "Polska", "50-505" },
+                    { 2, "Iławska 15a", "Wrocław", "Polska", "50-534" },
+                    { 3, "Dworcowa 8", "Poznań", "Polska", "47-123" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Cart",
                 columns: new[] { "Id", "TotalPrice" },
                 values: new object[,]
@@ -189,9 +215,9 @@ namespace E_Spożywczak.Migrations
                 columns: new[] { "Id", "DeliveryTypeName", "Price" },
                 values: new object[,]
                 {
-                    { 1, "Pocztex48", 8.50m },
+                    { 3, "Kurier DHL", 12.90m },
                     { 2, "Kurier DPD", 10.90m },
-                    { 3, "Kurier DHL", 12.90m }
+                    { 1, "Pocztex48", 8.50m }
                 });
 
             migrationBuilder.InsertData(
@@ -339,6 +365,9 @@ namespace E_Spożywczak.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Address");
+
             migrationBuilder.DropTable(
                 name: "Order");
 
