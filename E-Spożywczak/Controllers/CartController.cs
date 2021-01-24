@@ -53,10 +53,11 @@ namespace E_Spożywczak.Controllers
                     CartId = _context.GetCurrentCartId()
                 };
 
-                if (await _context.ProductInCart.Select(p => p.ProductId).ContainsAsync(productid))
+                var productInCartEx = await _context.ProductInCart.Select(p => p).FirstOrDefaultAsync(p => p.ProductId == productid);
+                if (productInCartEx != null)
                 {
-                    productInCart = await _context.ProductInCart.Select(p => p).FirstOrDefaultAsync(p => p.ProductId == productid);
-                    productInCart.ProductAmount++;
+                    productInCartEx.ProductAmount++;
+                    productInCartEx.TotalPrice+=product.Price;
                 }
                 else
                 {
