@@ -111,10 +111,10 @@ namespace E_Spożywczak.Controllers
                 return NotFound();
             }
 
-            /////OCENY I KOMENTARZE
+            ///// RATINGS
 
             var ratings = await _context.Rating
-                                .Select(r => r).Where(r => id == r.ProductId).ToListAsync();
+                                .Select(r => r).Where(r => id == r.ProductId).OrderByDescending(r => r.RatingDate).ToListAsync();
             int sum = 0;
             List<(double, string, DateTime)> rateAndComments = new List<(double, string, DateTime)>();
             foreach (Models.Rating rate in ratings)
@@ -135,8 +135,6 @@ namespace E_Spożywczak.Controllers
             ViewBag.RatesAndComments = rateAndComments;
 
             ////////////////////////////////////////
-            
-
 
             if (product.Availability < 3)
                 ViewData["Details availability"] = "Low";

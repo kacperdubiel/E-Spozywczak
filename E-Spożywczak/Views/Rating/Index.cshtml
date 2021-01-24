@@ -48,14 +48,14 @@
                     <input type="radio" id="rating3" name="rating" value="3" /><label class="half" for="rating3" title="1,5 gwiazdki"></label>
                     <input type="radio" id="rating2" name="rating" value="2" /><label for="rating2" title="1 gwiazdka"></label>
                     <input type="radio" id="rating1" name="rating" value="1" /><label class="half" for="rating1" title="0,5 gwiazdki"></label>
-                    <input type="radio" id="rating0" name="rating" value="0" /><label for="rating0" title="No star"></label>
+                    <input type="radio" id="rating0" name="rating" value="0" style="display: none" /><label for="rating0" title="No star" style="display: none"></label>
                 </fieldset>
-                <h4>Komentarz</h4>
-                <!--<input type="text" id="comment" name="comment" maxlength="250" style="width:600px; height:200px"><br><br>-->
-                <textarea rows="7" cols="100" id="message" name="message"></textarea>
-                <hr />
-                <input type="submit" asp-route-id="@Model.Id" asp-action="Rate" asp-controller="Rating" class="btn btn-success" value="Oceń">
-            </form>
+    <h4>Komentarz</h4>
+    <!--<input type="text" id="comment" name="comment" maxlength="250" style="width:600px; height:200px"><br><br>-->
+                    <textarea rows="7" cols="100" id="message" name="message"></textarea>
+                    <hr />
+                    <input type="submit" asp-route-id="@Model.Id" asp-action="Rate" asp-controller="Rating" class="btn btn-success" value="Oceń">
+</form>
             <a asp-controller="OrdersHistory" asp-action="Index" class="btn btn-success">Powrót</a>
         </div>
     </div>

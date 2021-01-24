@@ -23,7 +23,7 @@ namespace E_Spożywczak.Controllers
         public IActionResult Index()
         {
             OrdersHistory ordersHistory = _context.OrdersHistory.Include("Orders.Cart.ProductsInCart.Product").FirstOrDefault((x => x.Id == _context.GetCurrentOrdersHistoryId()));
-            List<Order> ordersInHistory = ordersHistory.Orders.OrderBy(o => o.OrderDate).Reverse().ToList();
+            List<Order> ordersInHistory = ordersHistory.Orders.OrderByDescending(o => o.OrderDate).ToList();
             return View("Index", ordersInHistory);
         }
     }
