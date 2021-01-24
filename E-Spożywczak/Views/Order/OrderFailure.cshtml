@@ -3,17 +3,13 @@
 }
 
 <div id="page">
+    <div id="info_box" class="bg-danger p-3 mb-2 text-white">
+        Niestety zamówienie nie może być aktualnie zrealizowane!
+    </div>
     @if (TempData["msg_text"] != null && TempData["success_msg"] != null)
     {
         <div id="info_box" class="@((bool)TempData["success_msg"] ? "bg-success" : "bg-danger") p-3 mb-2 text-white">
             @TempData["msg_text"]
         </div>
     }
-    Niestety zamówienie nie może być aktualnie zrealizowane!
 </div>
-
-<script>
-    setTimeout(function () {
-        $('#info_box').fadeOut('slow');
-    }, @TempData["msg_time"]);
-</script>

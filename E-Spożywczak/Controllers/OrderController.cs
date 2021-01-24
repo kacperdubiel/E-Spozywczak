@@ -68,7 +68,6 @@ namespace E_Spożywczak.Controllers
                         $"produktu o nazwie \"{productInCart.Product.Name}\"" +
                         $"\nStan magazynu: {productInCart.Product.Availability} {mesuretype}";
                     TempData["success_msg"] = false;
-                    TempData["msg_time"] = 10000;
                     return View("OrderFailure");
                 }
             }

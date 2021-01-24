@@ -3,11 +3,40 @@
 }
 
 <div id="page">
-    Zaraz zostaniesz przekierowany
+    <div id="info_box" class="bg-warning p-3 mb-2 text-white">
+        Zostaniesz przekierowany na stronę bankowości internetowej za 
+        <span id="count">8</span> sekund.  
+    </div>
+    
 </div>
 
 <script>
     setTimeout(function () {
         window.location.href = '/Order/OrderSuccess/';
-    }, 4000);
+    }, 8000);
+
+
+    let start // set on the first step to the timestamp provided
+    const el = document.getElementById('count') // get the element
+    const final = parseInt(el.textContent, 10) // parse out the final number
+    const duration = 8000 // duration in ms
+    const step = ts => {
+        if (!start) {
+            start = ts
+        }
+        // get the time passed as a fraction of total duration
+        let progress = (ts - start) / duration
+
+        var timer = Math.floor(final - (progress * final))
+        if (timer < 0)
+            timer = 0
+        el.textContent = timer
+        if (progress < 1) {
+            // if we're not 100% complete, request another animation frame
+            requestAnimationFrame(step)
+        }
+    }
+
+    // start the animation
+    requestAnimationFrame(step)
 </script>
