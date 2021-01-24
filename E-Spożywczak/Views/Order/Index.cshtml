@@ -175,15 +175,15 @@
         }
     }
 
-    var deliveryPrices = [@ViewBag.Delivery[0].Price, @ViewBag.Delivery[1].Price, @ViewBag.Delivery[2].Price];
+    var deliveryPrices = JSON.parse('@Html.Raw(Json.Serialize(@ViewBag.Delivery))');
     var productsPrice = @Model.TotalPrice;
 
-    var totalPrice = @Model.TotalPrice + deliveryPrices[(0)];
-    updateDeliveryPrice(deliveryPrices[0]);
+    var totalPrice = @Model.TotalPrice + deliveryPrices[0]['price'];
+    updateDeliveryPrice(deliveryPrices[0]['price']);
     updateTotalPrice(totalPrice);
 
     function deliveryChanged(radioButton) {
-        var deliveryPrice = deliveryPrices[(radioButton.value - 1)];
+        var deliveryPrice = deliveryPrices[(radioButton.value - 1)]['price'];
         var totalPrice = @Model.TotalPrice + deliveryPrice;
         updateDeliveryPrice(deliveryPrice);
         updateTotalPrice(totalPrice);
