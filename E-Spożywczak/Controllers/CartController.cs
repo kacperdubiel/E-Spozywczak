@@ -105,11 +105,29 @@ namespace E_Spożywczak.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult UpdateQuantity(int id, int quantity)
+        public ActionResult UpdateQuantity(int id, double quantity)
         {
             var productInCart = _context.ProductInCart.Include("Product").FirstOrDefault(x => x.Id == id);
+
+            if (productInCart.Product.MeasureType == Models.MeasureType.Piece)
+                quantity = Math.Round(quantity);
+
+            if (quantity < 0)
+                quantity = -quantity;
+
+            if (quantity == 0)
+            {
+                if (productInCart.Product.MeasureType == Models.MeasureType.Piece)
+                    quantity = 1;
+                else
+                    quantity = 0.1;
+            }
+
+            if (quantity > productInCart.Product.Availability)
+                quantity = productInCart.Product.Availability;
+
             productInCart.ProductAmount = quantity;
-            productInCart.TotalPrice = productInCart.Product.Price * quantity;
+            productInCart.TotalPrice = productInCart.Product.Price * (decimal)quantity;
             _context.SaveChanges();
             return RedirectToAction("Index");
         }

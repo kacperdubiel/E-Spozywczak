@@ -40,10 +40,9 @@ namespace E_Spożywczak.Controllers
             return View(product);
         }
 
-        //POST
-        [HttpPost, ActionName("Rate")]
         public async Task<IActionResult> Rate(int? id, int rating, string message)
         {
+            System.Diagnostics.Debug.WriteLine($"{id} - {rating} - {message}");
             if (id == null)
             {
                 return NotFound();
