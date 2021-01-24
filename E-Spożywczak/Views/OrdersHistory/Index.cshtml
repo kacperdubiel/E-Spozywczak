@@ -1,29 +1,37 @@
-﻿@model E_Spożywczak.Models.OrdersHistory 
+﻿@model IEnumerable<E_Spożywczak.Models.Order>
 
-@foreach(Order order in Model.Orders)
+
+
+@if (TempData["msg_text"] != null && TempData["success_msg"] != null)
 {
-<div style="border-style:groove; padding:10px; border-radius:10px">
-    <dl>
-        <dt>
-            Numer zamówienia 
-        </dt>
-        <dd>
-            @order.Id
-        </dd>
-        <dt>
-            Data zamówienia
-        </dt>
-        <dd>
-            @order.OrderDate
-        </dd>
-        <dt>
-            Cena zamówienia
-        </dt>
-        <dd>
-            @order.Cart.TotalPrice
-        </dd>
-    </dl>
-        <br/>
+    <div id="info_box" class="@((bool)TempData["success_msg"] ? "bg-success" : "bg-danger") p-3 mb-2 text-white">
+        @TempData["msg_text"]
+    </div>
+}
+@foreach (Order order in Model)
+{
+    <div style="border-style:groove; padding:10px; border-radius:10px">
+        <dl>
+            <dt>
+                Numer zamówienia
+            </dt>
+            <dd>
+                @order.Id
+            </dd>
+            <dt>
+                Data zamówienia
+            </dt>
+            <dd>
+                @order.OrderDate
+            </dd>
+            <dt>
+                Cena zamówienia
+            </dt>
+            <dd>
+                @order.Cart.TotalPrice zł.
+            </dd>
+        </dl>
+        <br />
         <div style="border-style: dotted; border-radius:10px; padding:10px">
             <table class="table table-hover">
                 <thead>
@@ -31,11 +39,11 @@
                         <th>
 
                         </th>
-                        <th>
-                           Nazwa
+                        <th width="200px">
+                            Nazwa
                         </th>
                         <th>
-                           Ilość produktu
+                            Ilość produktu
                         </th>
                         <th>
                             Cena całkowita
@@ -56,25 +64,30 @@
 
                                 <img src="@Url.Content(img_path)" style="max-height: 75px; max-width: 75px; height: auto; width: auto;" />
                             </td>
-                            <td>
+                            <td width="200px">
                                 @Html.DisplayFor(modelItem => productInCart.Product.Name)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => productInCart.ProductAmount)
+                                @Html.DisplayFor(modelItem => productInCart.ProductAmount) @Html.DisplayFor(modelItem => productInCart.Product.MeasureType)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => productInCart.TotalPrice)
+                                @Html.DisplayFor(modelItem => productInCart.TotalPrice) zł.
                             </td>
                             <td>
-                                <a asp-controller="Cart" asp-action="AddToCart" asp-route-productid="@productInCart.Product.Id", asp-route-fromhistory="true",
+                                <a asp-controller="Cart" asp-action="AddToCart" asp-route-productid="@productInCart.Product.Id" , asp-route-fromhistory="true" ,
                                    class="btn @(productInCart.Product.Availability <= 0 ? "btn-secondary disabled" : "btn-success")">Dodaj do koszyka</a>
                                 <a asp-controller="Rating" asp-action="Index" asp-route-id=@productInCart.Product.Id class="btn btn-success">Oceń</a>
                             </td>
                         </tr>
                     </tbody>
                 }
-                </table>
+            </table>
         </div>
-</div>
-<br />
+    </div>
+    <br />
 }
+<script>
+    setTimeout(function () {
+        $('#info_box').fadeOut('slow');
+    }, @TempData["msg_time"]);
+</script>
