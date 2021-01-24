@@ -115,15 +115,15 @@ namespace E_Spożywczak.Controllers
 
             var ratings = await _context.Rating
                                 .Select(r => r).Where(r => id == r.ProductId).OrderByDescending(r => r.RatingDate).ToListAsync();
-            int sum = 0;
+            double sum = 0;
             List<(double, string, DateTime)> rateAndComments = new List<(double, string, DateTime)>();
             foreach (Models.Rating rate in ratings)
             {
-                sum += (rate.Rate / 2);
-                rateAndComments.Add((rate.Rate/2, rate.Message, rate.RatingDate));
+                sum += (rate.Rate / 2.0);
+                rateAndComments.Add((rate.Rate/2.0, rate.Message, rate.RatingDate));
             }
 
-            double avgRating = (double)sum / (double)ratings.Count;
+            double avgRating = sum / (double)ratings.Count;
 
             if(ratings.Count > 0)
                 ViewBag.AvgProductRating = avgRating;
