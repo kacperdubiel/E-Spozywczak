@@ -69,8 +69,7 @@ namespace E_Spożywczak.Controllers
             _context.Add(newRating);
             _context.SaveChanges();
 
-            //return RedirectToAction("Details", "Products", id);
-            return View("Index");
+            return RedirectToAction("Details", "Products", new { id = id });
         }
     }
 }
