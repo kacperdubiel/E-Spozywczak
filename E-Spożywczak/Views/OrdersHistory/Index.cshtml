@@ -77,7 +77,7 @@
                             </td>
                             <td>
                                 <a asp-controller="Cart" asp-action="AddToCart" asp-route-productid="@productInCart.Product.Id" , asp-route-fromhistory="true" ,
-                                   class="btn @(productInCart.Product.Availability <= 0 ? "btn-secondary disabled" : "btn-success")">Dodaj do koszyka</a>
+                                   class="margin-bottom-5 btn @(productInCart.Product.Availability <= 0 ? "btn-secondary disabled" : "btn-success")">Dodaj do koszyka</a>
                                 <a asp-controller="Rating" asp-action="Index" asp-route-id=@productInCart.Product.Id class="btn btn-success">Oceń</a>
                             </td>
                         </tr>

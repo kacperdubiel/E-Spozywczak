@@ -54,8 +54,8 @@
     <!--<input type="text" id="comment" name="comment" maxlength="250" style="width:600px; height:200px"><br><br>-->
                     <textarea rows="7" cols="100" id="message" name="message"></textarea>
                     <hr />
-                    <input type="submit" asp-route-id="@Model.Id" asp-action="Rate" asp-controller="Rating" class="btn btn-success" value="Oceń">
+                    <input type="submit" asp-route-id="@Model.Id" asp-action="Rate" asp-controller="Rating" class="btn btn-success margin-bottom-5" value="Oceń">
+                    <a asp-controller="OrdersHistory" asp-action="Index" class="btn btn-success">Powrót</a>
 </form>
-            <a asp-controller="OrdersHistory" asp-action="Index" class="btn btn-success">Powrót</a>
         </div>
     </div>
