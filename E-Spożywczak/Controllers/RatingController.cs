@@ -42,7 +42,7 @@ namespace E_Spożywczak.Controllers
 
         public async Task<IActionResult> Rate(int? id, int rating, string message)
         {
-            System.Diagnostics.Debug.WriteLine($"{id} - {rating} - {message}");
+
             if (id == null)
             {
                 return NotFound();
