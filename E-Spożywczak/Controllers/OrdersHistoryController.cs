@@ -24,6 +24,10 @@ namespace E_Spożywczak.Controllers
         {
             OrdersHistory ordersHistory = _context.OrdersHistory.Include("Orders.Cart.ProductsInCart.Product").FirstOrDefault((x => x.Id == _context.GetCurrentOrdersHistoryId()));
             List<Order> ordersInHistory = ordersHistory.Orders.OrderByDescending(o => o.OrderDate).ToList();
+
+            if (ordersInHistory.Count == 0)
+                return View("EmptyOrdersHistory");
+
             return View("Index", ordersInHistory);
         }
     }
