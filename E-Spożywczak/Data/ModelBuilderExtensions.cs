@@ -612,18 +612,6 @@ namespace E_Spożywczak.Data
                 new Cart()
                 {
                     Id = 1,
-                },
-                new Cart()
-                {
-                    Id = 2,
-                },
-                new Cart()
-                {
-                    Id = 3,
-                },
-                new Cart()
-                {
-                    Id = 4,
                 }
                 ); ;
 
@@ -650,59 +638,6 @@ namespace E_Spożywczak.Data
                 }
                 ); ;
 
-                modelBuilder.Entity<ProductInCart>().HasData(
-                new ProductInCart()
-                {
-                    Id = 1,
-                    ProductAmount = 1,
-                    ProductId = 1,
-                    CartId = 1
-                },
-                new ProductInCart()
-                {
-                    Id = 2,
-                    ProductAmount = 2,
-                    ProductId = 29,
-                    CartId = 1
-                },
-                new ProductInCart()
-                {
-                    Id = 3,
-                    ProductAmount = 3,
-                    ProductId = 17,
-                    CartId = 2
-                },
-                new ProductInCart()
-                {
-                    Id = 4,
-                    ProductAmount = 1,
-                    ProductId = 9,
-                    CartId = 2
-                },
-                new ProductInCart()
-                {
-                    Id = 5,
-                    ProductAmount = 1,
-                    ProductId = 21,
-                    CartId = 3
-                },
-                new ProductInCart()
-                {
-                    Id = 6,
-                    ProductAmount = 3,
-                    ProductId = 19,
-                    CartId = 3
-                },
-                new ProductInCart()
-                {
-                    Id = 7,
-                    ProductAmount = 2,
-                    ProductId = 25,
-                    CartId = 3
-                }
-                ); ;
-
-
             modelBuilder.Entity<OrdersHistory>().HasData(
                 new OrdersHistory()
                 {
@@ -710,42 +645,6 @@ namespace E_Spożywczak.Data
                 }
                 ); ;
 
-            modelBuilder.Entity<Order>().HasData(
-                new Order()
-                {
-                    Id = 1,
-                    DeliveryAddress = "Krynicka 14, 50-555 Wrocław, Polska",
-                    OrderDate = new DateTime(2021, 1, 15, 12, 38, 23),
-                    TypeOfPayment = TypeOfPayment.OnDelivery,
-                    IsOrderPaid = true,
-                    OrderPaymentDate = new DateTime(2021, 1, 15, 12, 38, 23),
-                    DeliveryId = 1,
-                    CartId = 1,
-                    OrdersHistoryId = 1
-                },
-                new Order()
-                {
-                    Id = 2,
-                    DeliveryAddress = "Krynicka 14, 50-555 Wrocław, Polska",
-                    OrderDate = new DateTime(2021, 1, 19, 16, 23, 43),
-                    TypeOfPayment = TypeOfPayment.Electronic,
-                    IsOrderPaid = false,
-                    DeliveryId = 2,
-                    CartId = 2,
-                    OrdersHistoryId = 1
-                },
-                new Order()
-                {
-                    Id = 3,
-                    DeliveryAddress = "Krynicka 14, 50-555 Wrocław, Polska",
-                    OrderDate = new DateTime(2021, 1, 21, 14, 29, 57),
-                    TypeOfPayment = TypeOfPayment.Electronic,
-                    IsOrderPaid = false,
-                    DeliveryId = 3,
-                    CartId = 3,
-                    OrdersHistoryId = 1
-                }
-                ); ;
         }
     }
 }
